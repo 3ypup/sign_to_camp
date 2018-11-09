@@ -11,6 +11,8 @@ class Form < ApplicationRecord
   validates :photo_passport, presence: {:message => "Добавьте скан документа удостоверяющего личность!"}
   validates :medical, presence: {:message => "Добавьте скан медицинского полиса!"}
 
-
+mount_uploader :photo_child, PhotoChildUploader
+mount_uploader :photo_passport, PhotoPassportUploader
+mount_uploader :photo_medical, PhotoMedicalUploader
 
 end

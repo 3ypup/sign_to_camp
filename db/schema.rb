@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2018_11_09_080347) do
 
   create_table "forms", force: :cascade do |t|
-    t.text "author"
     t.text "name_child"
     t.datetime "date_of_birth"
     t.text "name_parent"
