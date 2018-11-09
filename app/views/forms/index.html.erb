@@ -1,4 +1,5 @@
 
+<div class="alert alert-secondary mx-auto" style="width: 300px;" role="alert">
 
 <%if user_signed_in?  %>
 
@@ -13,13 +14,16 @@
 	<%else%>
 
 <div class="alert alert-secondary"" role="alert">
-Мои анкеты <br/>
-
-</div>
-<div class="alert alert-secondary"" role="alert">
 
 
 <a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
+</div>
+
+
+
+<div class="alert alert-secondary"" role="alert">
+Мои анкеты <br/>
+
 </div>
 
 
@@ -36,4 +40,4 @@
 
 <%end%>
 
-
+</div>

@@ -1,11 +1,32 @@
 class FormsController < ApplicationController
 
+def authentificate
+  before_action :authenticate_user!
+end
+
+def new
+@form = Form.new
+
+
+end
+
+def create
+
+    @form = Form.new(form_params)
+      
+      if  @form.save
+        redirect_to @form
+      else
+        render action: 'new'
+      end
+  end
 
 
 
 
   def form_params
     params.require(:form).permit(
+      :author,
       :name_child,
       :date_of_birth,
       :name_parent,
