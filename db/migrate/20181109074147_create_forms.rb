@@ -16,7 +16,12 @@ class CreateForms < ActiveRecord::Migration[5.2]
       t.text :also
       t.text :bonus_contacts
       t.text :friends
-      
+
+      t.string :photo_child
+      t.string :photo_passport
+      t.string :medical
+
+
 
 
       t.string :image

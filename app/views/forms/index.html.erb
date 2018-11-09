@@ -1,0 +1,39 @@
+
+
+<%if user_signed_in?  %>
+
+	
+
+	<%if current_user.level >1 %>
+
+	Список всех заявок
+
+
+
+	<%else%>
+
+<div class="alert alert-secondary"" role="alert">
+Мои анкеты <br/>
+
+</div>
+<div class="alert alert-secondary"" role="alert">
+
+
+<a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
+</div>
+
+
+	<%end%>              
+       
+                 
+
+
+    
+
+
+            
+               
+
+<%end%>
+
+
