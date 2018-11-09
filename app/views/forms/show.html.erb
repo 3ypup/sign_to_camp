@@ -1,0 +1,45 @@
+<div class="alert alert-secondary mx-auto"  role="alert">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-md-12 col-sm-10 col-sx-10 mx-auto">
+          	
+            
+            <p4 class="float-left">
+              1.Имя участника</p4>
+            <p4 class="float-right">
+              <%=@form.name_child%></p4><br/><hr/>
+
+          <img class="float-right img-responsive" style="width: 300px" src=<%=@form.photo_child%>><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+
+
+            <p4 class="float-left">
+              2. Дата рождения</p4>
+            <p4 class="float-right">
+              <%=@form.date_of_birth.strftime("%d.%m.%Y")%></p4><br/><hr/>
+ 
+            <p4 class="float-left">
+              3.Имена и отчества родителей(опекунов)</p4>
+            <p4 class="float-right">
+              <%=@form.name_parent%></p4><br/><hr/>
+
+            <p4 class="float-left">
+              4.Телефоны родителей(опекунов)</p4>
+            <p4 class="float-right">
+              <%=@form.phones_parent%></p4><br/><hr/>
+
+              <p4 class="float-left">
+              5.Телефон подростка</p4>
+            <p4 class="float-right">
+              <%=@form.phone_child%></p4><br/><hr/>
+             
+             <p4 class="float-left">
+              6.Домашний адрес</p4>
+            <p4 class="float-right">
+              <%=@form.adress%></p4><br/><hr/>
+             
+
+
+          </div>
+        </div>
+      </div>
+</div>   

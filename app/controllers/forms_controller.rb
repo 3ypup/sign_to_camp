@@ -21,6 +21,11 @@ def create
       end
   end
 
+def show
+
+  @form = Form.find(params[:id])
+
+end
 
 
 
