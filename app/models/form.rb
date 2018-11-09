@@ -1,13 +1,16 @@
 class Form < ApplicationRecord
 
-  validates :author, presence: true
-  validates :title, :length => {:maximum => 20, :message => "Слишком длинная тема встречи !!"} 
-  validates :author, presence: true
-  validates :content, presence: {:message => "Опишите событие!!"}
-  validates :content, :length => {:maximum => 2000, :message => "Слишком много текста!!"}
-  validates :date, presence: {:message => "Выберите дату!!"}
-  validates :image, presence: {:message => "Выберите обложку встречи!!"}
+
+  validates :name_child, presence: {:message => "Введите имя подростка!"}
+  validates :date_of_birth, presence: {:message => "Введите дату рождения подростка!"}
+  validates :name_parent, presence: {:message => "Введите имя родителей(опекунов)!"}
+  validates :phones_parent, presence: {:message => "Введите контакты родителей(опекунов)!"}
+  validates :phone_child, presence: {:message => "Введите телефон подростка!"}
+  validates :adress, presence: {:message => "Введите домашний адрес!"}
+  validates :photo_child, presence: {:message => "Добавьте фотографию подростка!"}
+  validates :photo_passport, presence: {:message => "Добавьте скан документа удостоверяющего личность!"}
+  validates :medical, presence: {:message => "Добавьте скан медицинского полиса!"}
 
 
-mount_uploader :image, EventimageUploader
+
 end

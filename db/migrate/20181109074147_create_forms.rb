@@ -1,8 +1,8 @@
 class CreateForms < ActiveRecord::Migration[5.2]
   def change
     create_table :forms do |t|
-      
-      t.text :author
+
+   
       t.text :name_child
       t.datetime :date_of_birth
       t.text :name_parent
