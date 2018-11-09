@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_09_080347) do
+ActiveRecord::Schema.define(version: 2018_11_09_104448) do
 
   create_table "forms", force: :cascade do |t|
     t.text "name_child"
@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 2018_11_09_080347) do
     t.text "friends"
     t.string "photo_child"
     t.string "photo_passport"
-    t.string "medical"
+    t.string "photo_medical"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_childs"
   end
 
   create_table "users", force: :cascade do |t|

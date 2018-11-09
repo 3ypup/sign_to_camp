@@ -20,12 +20,12 @@ class CreateForms < ActiveRecord::Migration[5.2]
 
       t.string :photo_child
       t.string :photo_passport
-      t.string :medical
+      t.string :photo_medical
 
 
 
 
-      t.string :image
+     
 
       
 

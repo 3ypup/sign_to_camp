@@ -9,10 +9,11 @@ class Form < ApplicationRecord
   validates :adress, presence: {:message => "Введите домашний адрес!"}
   validates :photo_child, presence: {:message => "Добавьте фотографию подростка!"}
   validates :photo_passport, presence: {:message => "Добавьте скан документа удостоверяющего личность!"}
-  validates :medical, presence: {:message => "Добавьте скан медицинского полиса!"}
+  validates :photo_medical, presence: {:message => "Добавьте скан медицинского полиса!"}
 
-mount_uploader :photo_child, PhotoChildUploader
-mount_uploader :photo_passport, PhotoPassportUploader
-mount_uploader :photo_medical, PhotoMedicalUploader
+mount_uploader :photo_child, PchildUploader
+mount_uploader :photo_passport, PpassportUploader
+mount_uploader :photo_medical, PmedicalUploader
+
 
 end

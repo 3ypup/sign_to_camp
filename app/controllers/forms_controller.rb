@@ -44,6 +44,6 @@ def create
 
       :photo_child,
       :photo_passport,
-      :medical)
+      :photo_medical)
   end
 end
