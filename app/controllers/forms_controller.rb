@@ -75,6 +75,7 @@ def update
       :friends,
       :notes,
       :validation,
+      :payment,
 
       :photo_child,
       :photo_passport,

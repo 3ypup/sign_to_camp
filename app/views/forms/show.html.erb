@@ -6,8 +6,14 @@
 
         <%if @form.validation == 1%>
 
+
+
             <div class="alert alert-success" role="alert">
                  Анкета прошла регистрацию
+                 <%if @form.payment == 1%>
+                  и оплачена!
+                 <%end%>
+
               </div>
 
 
@@ -123,15 +129,14 @@
 
 
         <%= form_for :form, url: form_path(@form), method: :put do |f| %> 
-
-         
-        
           <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
-
-         
-          
-
           <button class="btn btn-outline-success float-right" type="submit">Зарегистрировать анкету</button>
+
+        <%end%><br/><hr/>
+
+         <%= form_for :form, url: form_path(@form), method: :put do |f| %> 
+          <p4> <%= f.hidden_field :payment, value: 1 %> </p4>
+          <button class="btn btn-outline-success float-right" type="submit">Подтвердить опллату</button>
 
         <%end%>
 
