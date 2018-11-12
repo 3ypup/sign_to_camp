@@ -2,7 +2,24 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-10 col-md-12 col-sm-10 col-sx-10 mx-auto">
-          	
+      
+
+        <%if @form.validation == 1%>
+
+            <div class="alert alert-success" role="alert">
+                 Анкета прошла регистрацию
+              </div>
+
+
+      <% else%>
+            <div class="alert alert-danger" role="alert">
+                 Анкета не прошла регистрацию, смотрите комментарии ниже
+              </div>
+
+      <%end%>
+
+
+
             
             <p4 class="float-left">
               1.Имя участника</p4>
@@ -51,7 +68,7 @@
             <p4 class="float-left">
               9.Является ли подросток вегетарианцем?</p4>
             <p4 class="float-right">
-              <%=@form.vegan%></p4><br/><hr/>
+              <%=$vegan[@form.vegan.to_i]%></p4><br/><hr/>
 
             <p4 class="float-left">
               10.Наблюдался ли ваш ребенок у невролога, психиатра?</p4>
@@ -86,7 +103,40 @@
             15.скан полиса</t2></p4>
           <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
 
+        <%if current_user.level >1 %>
 
+
+
+       <%= form_for :form, url: form_path(@form), method: :put do |f| %> 
+
+         
+          <h3>Комментарии к анкете</h3><br/>
+          <p4> <%= f.text_area :notes, size: "80x5", value: @form.notes %> </p4><br/>
+          <p4> <%= f.hidden_field :validation, value: 0 %> </p4><br/>
+
+         
+          
+
+          <button class="btn btn-outline-danger float-left" type="submit">Отклонить анкету с комментариями</button>
+
+        <%end%>
+
+
+        <%= form_for :form, url: form_path(@form), method: :put do |f| %> 
+
+         
+        
+          <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
+
+         
+          
+
+          <button class="btn btn-outline-success float-right" type="submit">Зарегистрировать анкету</button>
+
+        <%end%>
+
+
+        <%end%>
 
 
           </div>

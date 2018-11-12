@@ -4,6 +4,10 @@ def authentificate
   before_action :authenticate_user!
 end
 
+$vegan = ["Нет", "Да"]
+
+
+
 def new
 @form = Form.new
 
@@ -33,7 +37,22 @@ def show
 
   @form = Form.find(params[:id])
 
+  
 end
+
+
+def update
+
+  @form = Form.find(params[:id])
+     if  @form.update(form_params) 
+        redirect_to @form
+
+      else
+        render action: 'edit'
+      end
+
+ end     
+
 
 
 
@@ -54,6 +73,8 @@ end
       :also,
       :bonus_contacts,
       :friends,
+      :notes,
+      :validation,
 
       :photo_child,
       :photo_passport,

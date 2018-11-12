@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_094408) do
+ActiveRecord::Schema.define(version: 2018_11_12_122723) do
 
   create_table "forms", force: :cascade do |t|
     t.text "name_child"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_094408) do
     t.datetime "updated_at", null: false
     t.string "photo_childs"
     t.string "author"
+    t.text "notes"
+    t.integer "validation"
   end
 
   create_table "users", force: :cascade do |t|
