@@ -45,8 +45,8 @@
   <t2>7.Пищевые ограничения, аллергические реакции, заболевания</t2><br/>
   <p1> <%= f.text_field  :food_allergy, size: "50x1", value: @form.food_allergy  %> </p1><br/><br/>
 
-  <t2>8.Является ли подросток вегетарианцем(с 07.01 в меню будут мясные блюда)?</t2>
-  <p1> <%= f.check_box  :vegan,  value: @form.vegan  %> </p1><br/><br/>
+  <t2>8.Является ли подросток вегетарианцем(с 07.01 в меню будут мясные блюда)?</t2><br/>
+  <p1> <%= f.check_box  :vegan,  value: @form.vegan  %> ДА  </p1><br/><br/>
       
   <t2>9.Наблюдался ли ваш ребенок у невролога, психиатра?</t2><br/>
   <p1> <%= f.text_area :psycho, size: "50x3", value: @form.psycho  %> </p1><br/><br/>

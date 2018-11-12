@@ -10,6 +10,14 @@ def new
 
 end
 
+def index
+
+@forms=Form.all
+@myforms=Form.where(email: current_user.email)
+
+end
+
+
 def create
 
     @form = Form.new(form_params)

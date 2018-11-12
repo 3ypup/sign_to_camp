@@ -1,28 +1,77 @@
 
-<div class="alert alert-secondary mx-auto" style="width: 300px;" role="alert">
+<div class="alert alert-secondary mx-auto col-lg-10 col-md-8 col-sm-6 col-sx-4"  role="alert">
 
 <%if user_signed_in?  %>
 
-	
-
 	<%if current_user.level >1 %>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Участник</th>
+      <th scope="col">Анкета согласована</th>
+      <th scope="col">Вегетарианец</th>
+      <th scope="col">Открыить анкету</th>
+    </tr>
+  </thead>
+  <% @n=0 %>
+  <% @forms.each do |form|%>
+  <tbody>
 
-	Список всех заявок
 
+    <tr><%@n+=1%>
+      <th scope="row"><%=@n%></th>
+      <td><%=form.name_child%></td>
+      <td><%=form.id%></td>
+      <td><%=form.vegan%></td>
+      <td> <a href = <%=form_url(form.id)%>> <button type="button"   class="btn btn-outline-success"> Открыть</button></a></td>
 
+    </tr>
 
+     </tbody>
+
+	<%end%> 
+</table>
 	<%else%>
 
 <div class="alert alert-secondary"" role="alert">
 
 
-<a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
+	<a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
 </div>
 
 
-
+<h2>Мои анкеты</h2>
 <div class="alert alert-secondary"" role="alert">
-Мои анкеты <br/>
+	<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Участник</th>
+      <th scope="col">Анкета согласована</th>
+      <th scope="col">Вегетарианец</th>
+      <th scope="col">Открыить анкету</th>
+    </tr>
+  </thead>
+  <% @n=0 %>
+  <% @myforms.each do |form|%>
+  <tbody>
+
+
+    <tr><%@n+=1%>
+      <th scope="row"><%=@n%></th>
+      <td><%=form.name_child%></td>
+      <td><%=form.id%></td>
+      <td><%=form.vegan%></td>
+      <td> <a href = <%=form_url(form.id)%>> <button type="button"   class="btn btn-outline-success"> Открыть</button></a></td>
+
+    </tr>
+
+     </tbody>
+
+	<%end%> 
+</table>
+<br/>
 
 </div>
 
