@@ -10,18 +10,21 @@
 <%if user_signed_in?  %>
 
 	<%if current_user.level >1 %>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Участник</th>
-      <th scope="col">Анкета зарегистрирована</th>
-      <th scope="col">Анкета оплачена</th>
-      <th scope="col">Открыить анкету</th>
-    </tr>
-  </thead>
-  <% @n=0 %>
+		<table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Участник</th>
+			      <th scope="col">Анкета зарегистрирована</th>
+			      <th scope="col">Анкета оплачена</th>
+			      <th scope="col">Открыить анкету</th>
+			    </tr>
+			  </thead>
+			  <% @n=0 %>
+
+
   <% @forms.each do |form|%>
+
   <tbody>
 
 
@@ -42,7 +45,7 @@
 
       <% else%>
             <div class="alert alert-danger" role="alert">
-                 Анкета не прошла регистрацию, смотрите комментарии
+                 Анкета еще не прошла регистрацию
               </div>
 
       <%end%>
@@ -98,21 +101,66 @@
     </tr>
   </thead>
   <% @n=0 %>
+
   <% @myforms.each do |form|%>
-  <tbody>
+
+    <tbody>
 
 
     <tr><%@n+=1%>
       <th scope="row"><%=@n%></th>
       <td><%=form.name_child%></td>
-      <td><%=form.id%></td>
-      <td><%=form.vegan%></td>
+
+
+      <td> 
+
+
+      	<%if form.validation == 1%>
+
+            <div class="alert alert-success" role="alert">
+                 Анкета прошла регистрацию
+              </div>
+
+
+      <% else%>
+            <div class="alert alert-danger" role="alert">
+                 Анкета еще не прошла регистрацию
+
+                 <%if form.notes !=nil%>
+                 смотрите комментарии
+                 <%end%>
+
+              </div>
+
+      <%end%>
+
+
+      </td>
+      <td>
+
+		<%if form.payment == 1%>
+
+            <div class="alert alert-success" role="alert">
+                 Анкета оплачена
+              </div>
+
+
+      <% else%>
+            <div class="alert alert-danger" role="alert">
+                 Анкета не оплачена
+              </div>
+		<%end%>
+
+      </td>
+
+
+
+
       <td> <a href = <%=form_url(form.id)%>> <button type="button"   class="btn btn-outline-success"> Открыть</button></a></td>
 
     </tr>
 
      </tbody>
-
 	<%end%> 
 </table>
 <br/>

@@ -19,7 +19,11 @@
 
       <% else%>
             <div class="alert alert-danger" role="alert">
-                 Анкета не прошла регистрацию, смотрите комментарии ниже
+                 Анкета не прошла регистрацию, 
+
+                 <%if @form.notes !=nil%>
+                 смотрите комментарии ниже
+                 <%end%>
               </div>
 
       <%end%>
@@ -108,6 +112,17 @@
           <p4 class="float-left">
             15.скан полиса</t2></p4>
           <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+ <% if @form.validation !=1%>
+
+          <p4 class="float-left">
+            Комментарии</t2></p4>
+          <h2 class="float-right">
+              <%=@form.notes%></h2><br/><hr/>    
+
+
+
+          <%= link_to "Редактировать анкету", edit_form_path(@form)  %> 
+        <%end%>
 
         <%if current_user.level >1 %>
 

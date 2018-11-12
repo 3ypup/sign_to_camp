@@ -45,8 +45,8 @@
     <%if user_signed_in?%>
               
         <a class="navbar-brand"> <%=current_user.email%></a>
-                 
-                  
+        <a href=<%=forms_path%>>         
+         <small>Список анкет</small></a>
         <small ><%= link_to 'Выйти?', destroy_user_session_path, :method => :delete %></small><br/>
 
         <%else%>

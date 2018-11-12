@@ -17,7 +17,7 @@ end
 def index
 
 @forms=Form.all
-@myforms=Form.where(email: current_user.email)
+@myforms=Form.where(author: current_user.email)
 
 end
 
@@ -40,6 +40,10 @@ def show
   
 end
 
+
+def edit
+@form = Form.find(params[:id])
+end
 
 def update
 
