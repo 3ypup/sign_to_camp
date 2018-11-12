@@ -19,10 +19,10 @@
 
       <% else%>
             <div class="alert alert-danger" role="alert">
-                 Анкета не прошла регистрацию, 
+                 Анкета еще не прошла регистрацию
 
                  <%if @form.notes !=nil%>
-                 смотрите комментарии ниже
+                 , смотрите комментарии ниже
                  <%end%>
               </div>
 
@@ -43,6 +43,7 @@
               2. Дата рождения</p4>
             <p4 class="float-right">
               <%=@form.date_of_birth.strftime("%d.%m.%Y")%></p4><br/><hr/>
+              
  
             <p4 class="float-left">
               3.Имена и отчества родителей(опекунов)</p4>

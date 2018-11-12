@@ -46,6 +46,10 @@
       <% else%>
             <div class="alert alert-danger" role="alert">
                  Анкета еще не прошла регистрацию
+                  <%if form.notes !=nil%>
+                 смотрите комментарии
+                 <%end%>
+
               </div>
 
       <%end%>
