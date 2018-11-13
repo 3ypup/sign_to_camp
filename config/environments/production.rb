@@ -106,7 +106,7 @@ Rails.application.configure do
 
 config.action_mailer.raise_delivery_errors = true
 
-config.action_mailer.default_url_options = { :host => '80.211.54.26' }
+config.action_mailer.default_url_options = { :host => '80.211.25.30' }
 ActionMailer::Base.smtp_settings = {
 
 
