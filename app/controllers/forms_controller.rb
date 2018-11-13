@@ -27,7 +27,7 @@ respond_to do | format |
       begin 
         temp = Tempfile.new("forms.xlsx") 
         xlsx_package.serialize "/tmp/forms"
-        send_file "/tmp/forms", :filename => "forms.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        send_file "/tmp/forms", :filename => "Список участников.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       ensure
         temp.close 
         temp.unlink
@@ -98,6 +98,7 @@ def update
       :notes,
       :validation,
       :payment,
+      :refresh,
 
       :photo_child,
       :photo_passport,

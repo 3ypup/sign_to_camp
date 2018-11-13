@@ -2,8 +2,8 @@
 <div class="alert alert-secondary mx-auto col-lg-10 col-md-8 col-sm-6 col-sx-4"  role="alert">
 	
 <div class="alert alert-secondary"" role="alert">
-	
-<%= link_to 'Download', url_for(:format=>"xlsx") %>
+
+
 
 </div>
 	<a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
@@ -11,6 +11,11 @@
 <%if user_signed_in?  %>
 
 	<%if current_user.level >1 %>
+
+	
+
+	<a class="float-right btn btn-outline-success" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %><br/><br/><hr/>
+
 		<table class="table">
 			  <thead class="thead-dark">
 			    <tr>
