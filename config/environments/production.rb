@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.require_master_key = true
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -91,4 +92,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { :host => '80.211.54.26' }
+ActionMailer::Base.smtp_settings = {
+
+
+  enable_starttls_auto: true,
+  openssl_verify_mode: 'none',
+  #ssl:             true,
+  domain:         'gmail.com',
+  address:        'smtp.gmail.com', # default: localhost
+  port:           '587',                  # default: 25
+  user_name:      Rails.application.credentials.user_name,
+  password:       Rails.application.credentials.email_pass,
+  authentication: :plain              # :plain, :login or :cram_md5
+}
+
 end
