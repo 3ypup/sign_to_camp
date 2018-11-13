@@ -89,4 +89,6 @@ ActionMailer::Base.smtp_settings = {
   user_name:      Rails.application.credentials.user_name,
   password:       Rails.application.credentials.email_pass,
   authentication: :plain              # :plain, :login or :cram_md5 }
+
+}
 end
