@@ -1,5 +1,5 @@
 class Form < ApplicationRecord
-
+acts_as_xlsx
 
   validates :name_child, presence: {:message => "Введите имя подростка!"}
   validates :date_of_birth, presence: {:message => "Введите дату рождения подростка!"}

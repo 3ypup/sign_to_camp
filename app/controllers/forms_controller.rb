@@ -19,8 +19,22 @@ def index
 @forms=Form.all
 @myforms=Form.where(author: current_user.email)
 
+respond_to do | format |  
+    format.html # index.html.erb
+    format.json { render :json => @forms }
+    format.xlsx {
+      xlsx_package = Form.to_xlsx
+      begin 
+        temp = Tempfile.new("forms.xlsx") 
+        xlsx_package.serialize "/tmp/forms"
+        send_file "/tmp/forms", :filename => "forms.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ensure
+        temp.close 
+        temp.unlink
+    end
+ }  
 end
-
+end
 
 def create
 
@@ -36,6 +50,10 @@ def create
 def show
 
   @form = Form.find(params[:id])
+
+
+  
+
 
   
 end

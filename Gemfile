@@ -64,3 +64,9 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'actionmailer'
+
+gem 'acts_as_xlsx',
+:git => "git://github.com/straydogstudio/acts_as_xlsx.git"
+
+gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
+gem 'zip-zip' # will load compatibility for old rubyzip API.
