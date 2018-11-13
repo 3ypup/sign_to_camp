@@ -5,10 +5,7 @@
 
 
 
-
-
 </div>
-	<a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
 
 <%if user_signed_in?  %>
 
@@ -16,7 +13,6 @@
 
 	
 
-	<a class="float-right btn btn-outline-success" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %><br/><br/><hr/>
 
 		<table class="table">
 			  <thead class="thead-dark">
@@ -31,7 +27,7 @@
 			  <% @n=0 %>
 
 
-  <% @forms.each do |form|%>
+  <% @forms_count.each do |form|%>
 
   <tbody>
 
@@ -52,7 +48,6 @@
 
 
       <% else%>
-            
             <div class="alert alert-danger" role="alert">
                  Анкета еще не прошла регистрацию
                   <%if form.notes !=nil%>
@@ -101,7 +96,6 @@
 </div>
 
 
-
 <h2>Мои анкеты</h2>
 <div class="alert alert-secondary"" role="alert">
 	<table class="table">
@@ -116,7 +110,7 @@
   </thead>
   <% @n=0 %>
 
-  <% @forms.where(author: current_user.email).each do |form|%>
+  <% @myforms.each do |form|%>
 
     <tbody>
 

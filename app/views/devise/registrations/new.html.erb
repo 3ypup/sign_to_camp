@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+
+<div class="alert alert-secondary mx-auto" style="width: 350px;" role="alert">
+
+<h2>Зарегистрироваться</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -27,3 +30,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

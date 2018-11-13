@@ -6,18 +6,32 @@ end
 
 $vegan = ["Нет", "Да"]
 
+def recount
+@forms_count = Form.where(refresh: 1) 
+
+@count = @forms_count.count
+end
 
 
 def new
 @form = Form.new
 
 
+
+
+end
+
+def refreshed
+
+recount
+
 end
 
 def index
 
 @forms=Form.all
-@myforms=Form.where(author: current_user.email)
+recount
+
 
 respond_to do | format |  
     format.html # index.html.erb
@@ -48,7 +62,7 @@ def create
   end
 
 def show
-
+recount
   @form = Form.find(params[:id])
 
 
