@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_125906) do
+ActiveRecord::Schema.define(version: 2018_11_13_081252) do
 
   create_table "forms", force: :cascade do |t|
     t.text "name_child"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_125906) do
     t.text "notes"
     t.integer "validation"
     t.integer "payment"
+    t.integer "refresh"
   end
 
   create_table "users", force: :cascade do |t|

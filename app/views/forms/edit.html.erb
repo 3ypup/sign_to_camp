@@ -1,67 +1,76 @@
+<div class="alert alert-secondary mx-auto"  role="alert">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-md-12 col-sm-10 col-sx-10 mx-auto">
+
+			<%= form_for :form, url: form_path(@form.id), method: :put do |f| %> 
+
+				
+				<t4> отредактируйте анкету: </t4>
+
+			  <h1> <%= f.hidden_field  :author, value: current_user.email %> </h1>
+
+			  <t2>1.Фамилия, имя и отчество подростка</t2><br/>
+			  <p1> <%= f.text_field  :name_child, size: "50x1", value: @form.name_child  %> </p1><br/><br/>
+
+			  <t2>2.Дата_рождения</t2><br/>
+			  <p1> <%= f.date_field  :date_of_birth,  size: "40x1"  %> </p1><br/><br/>
+
+			  <t2>3.Имена и отчества родителей(опекунов)</t2><br/>
+			  <p1> <%= f.text_field  :name_parent, size: "50x1", value: @form.name_parent  %> </p1><br/><br/>
+
+			  <t2>4.Телефоны родителей(опекунов)</t2><br/>
+			  <p1> <%= f.text_field  :phones_parent, size: "50x1", value: @form.phones_parent  %> </p1><br/><br/>
+			  
+			  <t2>5.Телефон подростка</t2><br/>
+			  <p1> <%= f.text_field  :phone_child, size: "50x1", value: @form.phone_child  %> </p1><br/><br/>
+
+			  <t2>6.Почта</t2><br/>
+			  <p1> <%= f.email_field :email, size: "50x1", value: @form.email  %> </p1><br/><br/>
+			   
+			  <t2>7.Домашний адрес</t2><br/>
+			  <p1> <%= f.text_field  :adress, size: "50x1", value: @form.adress  %> </p1><br/><br/>
+
+			  <t2>8.Пищевые ограничения, аллергические реакции, заболевания</t2><br/>
+			  <p1> <%= f.text_field  :food_allergy, size: "50x1", value: @form.food_allergy  %> </p1><br/><br/>
+
+			  <t2>9.Является ли подросток вегетарианцем(с 07.01 в меню будут мясные блюда)?</t2><br/>
+			  <p1> <%= f.check_box  :vegan,  value: @form.vegan  %> ДА  </p1><br/><br/>
+			      
+			  <t2>10.Наблюдался ли ваш ребенок у невролога, психиатра?</t2><br/>
+			  <p1> <%= f.text_area :psycho, size: "50x3", value: @form.psycho  %> </p1><br/><br/>
+
+			  <t2>11.Происходили ли в жизни подростка за последний год важные события (переезд в другой город, рождение
+			брата или сестры, смерть родственника)?</t2><br/>
+			  <p1> <%= f.text_area  :events, size: "50x3", value: @form.events  %> </p1><br/><br/>
+
+			  <t2>12.Дополнительно хочу сообщить организаторам</t2><br/>
+			  <p1> <%= f.text_area  :also, size: "50x3", value: @form.also  %> </p1><br/><br/> 
+			      
+			  <t2>13.Дополнительные телефоны и контактные лица, с которыми организаторы могут связаться, если подросток
+			досрочно едет домой по причине болезни или нарушения дисциплины:</t2><br/>
+			  <p1> <%= f.text_field  :bonus_contacts, size: "50x3", value: @form.bonus_contacts  %> </p1><br/><br/>  
 
 
-<%= form_for :form, url: form_path(@form.id), method: :put do |f| %> 
+			  <t2>14.Если в лагерь едут друзья, с которыми участник хотел бы проживать в одной комнате, укажите их
+			здесь.</t2><br/>
+			  <p1> <%= f.text_field  :friends, size: "50x1", value: @form.friends  %> </p1><br/><br/> 
 
-	
-	<t4> отредактируйте анкету: </t4>
+			  <t2>15.прикрепите, пожалуйста, фото подростка.</t2><br/>
+			  <p1> <%= f.file_field :photo_child  %> </p1><br/><br/>
+			     
+			  <t2>16.прикрепите, пожалуйста, скан паспорта подростка или свидетельства о рождении.</t2><br/>
+			  <p1> <%= f.file_field :photo_passport %> </p1><br/><br/>
 
-  <h1> <%= f.hidden_field  :author, value: current_user.email %> </h1>
+			   <t2>17.прикрепите, пожалуйста, скан медицинского полиса страхования</t2><br/>
+			  <p1> <%= f.file_field :photo_medical %> </p1><br/><br/>
 
-  <t2>1.Фамилия, имя и отчество подростка</t2><br/>
-  <p1> <%= f.text_field  :name_child, size: "50x1", value: @form.name_child  %> </p1><br/><br/>
+			   <%= f.hidden_field  :refresh,  value: 1  %> 
 
-  <t2>2.Дата_рождения</t2><br/>
-  <p1> <%= f.date_field  :date_of_birth,  size: "40x1"  %> </p1><br/><br/>
+				<button class="btn btn-outline-primary" type="submit">отправить изменения</button>
 
-  <t2>3.Имена и отчества родителей(опекунов)</t2><br/>
-  <p1> <%= f.text_field  :name_parent, size: "50x1", value: @form.name_parent  %> </p1><br/><br/>
+			<%end%>
 
-  <t2>4.Телефоны родителей(опекунов)</t2><br/>
-  <p1> <%= f.text_field  :phones_parent, size: "50x1", value: @form.phones_parent  %> </p1><br/><br/>
-  
-  <t2>5.Телефон подростка</t2><br/>
-  <p1> <%= f.text_field  :phone_child, size: "50x1", value: @form.phone_child  %> </p1><br/><br/>
-
-  <t2>6.Почта</t2><br/>
-  <p1> <%= f.email_field :email, size: "50x1", value: @form.email  %> </p1><br/><br/>
-   
-  <t2>7.Домашний адрес</t2><br/>
-  <p1> <%= f.text_field  :adress, size: "50x1", value: @form.adress  %> </p1><br/><br/>
-
-  <t2>8.Пищевые ограничения, аллергические реакции, заболевания</t2><br/>
-  <p1> <%= f.text_field  :food_allergy, size: "50x1", value: @form.food_allergy  %> </p1><br/><br/>
-
-  <t2>9.Является ли подросток вегетарианцем(с 07.01 в меню будут мясные блюда)?</t2><br/>
-  <p1> <%= f.check_box  :vegan,  value: @form.vegan  %> ДА  </p1><br/><br/>
-      
-  <t2>10.Наблюдался ли ваш ребенок у невролога, психиатра?</t2><br/>
-  <p1> <%= f.text_area :psycho, size: "50x3", value: @form.psycho  %> </p1><br/><br/>
-
-  <t2>11.Происходили ли в жизни подростка за последний год важные события (переезд в другой город, рождение
-брата или сестры, смерть родственника)?</t2><br/>
-  <p1> <%= f.text_area  :events, size: "50x3", value: @form.events  %> </p1><br/><br/>
-
-  <t2>12.Дополнительно хочу сообщить организаторам</t2><br/>
-  <p1> <%= f.text_area  :also, size: "50x3", value: @form.also  %> </p1><br/><br/> 
-      
-  <t2>13.Дополнительные телефоны и контактные лица, с которыми организаторы могут связаться, если подросток
-досрочно едет домой по причине болезни или нарушения дисциплины:</t2><br/>
-  <p1> <%= f.text_field  :bonus_contacts, size: "50x3", value: @form.bonus_contacts  %> </p1><br/><br/>  
-
-
-  <t2>14.Если в лагерь едут друзья, с которыми участник хотел бы проживать в одной комнате, укажите их
-здесь.</t2><br/>
-  <p1> <%= f.text_field  :friends, size: "50x1", value: @form.friends  %> </p1><br/><br/> 
-
-  <t2>15.прикрепите, пожалуйста, фото подростка.</t2><br/>
-  <p1> <%= f.file_field :photo_child  %> </p1><br/><br/>
-     
-  <t2>16.прикрепите, пожалуйста, скан паспорта подростка или свидетельства о рождении.</t2><br/>
-  <p1> <%= f.file_field :photo_passport %> </p1><br/><br/>
-
-   <t2>17.прикрепите, пожалуйста, скан медицинского полиса страхования</t2><br/>
-  <p1> <%= f.file_field :photo_medical %> </p1><br/><br/>
-
-	<p3> <%= f.submit 'Edit'  %></p3>
-
-<%end%>
+		</div>
+	</div>
+</div>		
