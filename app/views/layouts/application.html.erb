@@ -63,11 +63,11 @@
                 <a class="nav-link" href=<%=user_forms_path(current_user.id)%>><button type="button" class="btn btn-outline-primary">Список анкет</button></a>
               </li>
 
-
+              <%if current_user.level>1%>
               <li class="nav-item">
-                <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary">Ждут согласования: 2</button></a>
+                <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary">Ждут согласования: <%=@count%></button></a>
               </li>
-
+              <%end%>
               <li class="nav-item">
                 <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary">Выход</button></a>
               </li>
