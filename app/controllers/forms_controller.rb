@@ -30,9 +30,9 @@ end
 def index
 
 
+@user = current_user
 
-
-@forms=Form.all
+@forms=@user.forms.all
 
 
 recount
@@ -58,10 +58,14 @@ end
 def create
  
     @user = User.find(params[:user_id])
-    @user.forms.create(form_params)
+  @form = Form.new(form_params)
 
-    redirect_to user_forms_path(@user)
- 
+      if  @form.save
+        redirect_to user_forms_path(@user)
+      else
+        render action: 'new'
+      end
+     
 
 end
 
@@ -69,7 +73,8 @@ def show
 recount
 
   @user = User.find(params[:user_id])
-  @form = @user.forms.find(params[:id])
+
+  @form = current_user.forms.find(params[:id])
 
 
   
@@ -89,7 +94,7 @@ def update
      if  @form.update(form_params) 
         redirect_to user_form_path(@form.user_id)
 
-       
+
 
       else
         render action: 'edit'
