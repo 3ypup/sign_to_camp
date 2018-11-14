@@ -34,9 +34,15 @@ def index
 
 @user = current_user
 
+if current_user.level >1
+
+  @forms = Form.all
+
+else
+
 @forms=@user.forms.all
 
-
+end
 recount
 
 
@@ -76,11 +82,14 @@ recount
 
   @user = User.find(params[:user_id])
 
+if current_user.level > 1
+
+  @form = @user.forms.find(params[:id])
+
+else
   @form = current_user.forms.find(params[:id])
 
-
-  
-
+end
 
   
 end
@@ -91,6 +100,8 @@ def edit
 end
 
 def update
+
+
 
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
