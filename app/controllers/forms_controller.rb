@@ -7,9 +7,13 @@ end
 $vegan = ["Нет", "Да"]
 
 def recount
+
+if current_user.level>1  
 @forms_count = Form.where(refresh: 1) 
 
 @count = @forms_count.count
+
+end
 end
 
 
