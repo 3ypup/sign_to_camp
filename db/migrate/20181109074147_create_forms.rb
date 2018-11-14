@@ -24,7 +24,7 @@ class CreateForms < ActiveRecord::Migration[5.2]
       t.string :photo_medical
 
 
-
+    t.references :user, foreign_key: true
 
      
 

@@ -1,198 +1,45 @@
-
-<div class="alert alert-secondary mx-auto col-lg-10 col-md-8 col-sm-6 col-sx-4"  role="alert">
-	
-<div class="alert alert-secondary"" role="alert">
-
-
-
-
-
-</div>
-	<a class="btn btn-outline-primary" href=<%=new_form_url%>> Записать в лагерь</a>
-
-<%if user_signed_in?  %>
-
-	<%if current_user.level >1 %>
-
-	
-
-	<a class="float-right btn btn-outline-success" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %><br/><br/><hr/>
-
-		<table class="table">
-			  <thead class="thead-dark">
-			    <tr>
-			      <th scope="col">#</th>
-			      <th scope="col">Участник</th>
-			      <th scope="col">Анкета зарегистрирована</th>
-			      <th scope="col">Анкета оплачена</th>
-			      <th scope="col">Открыть анкету</th>
-			    </tr>
-			  </thead>
-			  <% @n=0 %>
-
-
-  <% @forms.each do |form|%>
-
-  <tbody>
-
-
-    <tr><%@n+=1%>
-      <th scope="row"><%=@n%></th>
-      <td><%=form.name_child%></td>
-
-
-      <td> 
-
-
-      	<%if form.validation == 1%>
-
-            <div class="alert alert-success" role="alert">
-                 Анкета прошла регистрацию
-              </div>
-
-
-      <% else%>
-            
-            <div class="alert alert-danger" role="alert">
-                 Анкета еще не прошла регистрацию
-                  <%if form.notes !=nil%>
-                 смотрите комментарии
-                 <%end%>
-
-              </div>
-
-      <%end%>
-
-
-      </td>
-      <td>
-
-		<%if form.payment == 1%>
-
-            <div class="alert alert-success" role="alert">
-                 Анкета оплачена
-              </div>
-
-
-      <% else%>
-            <div class="alert alert-danger" role="alert">
-                 Анкета не оплачена
-              </div>
-		<%end%>
-
-      </td>
-
-
-
-
-      <td> <a href = <%=form_url(form.id)%>> <button type="button"   class="btn btn-outline-success"> Открыть</button></a></td>
-
-    </tr>
-
-     </tbody>
-
-	<%end%> 
-</table>
-	<%else%>
-
-<div class="alert alert-secondary"" role="alert">
-
-
-</div>
-
-
-
-<h2>Мои анкеты</h2>
-<div class="alert alert-secondary"" role="alert">
-	<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Участник</th>
-      <th scope="col">Анкета согласована</th>
-      <th scope="col">Вегетарианец</th>
-      <th scope="col">Открыть анкету</th>
-    </tr>
-  </thead>
-  <% @n=0 %>
-
-  <% @forms.where(author: current_user.email).each do |form|%>
-
-    <tbody>
-
-
-    <tr><%@n+=1%>
-      <th scope="row"><%=@n%></th>
-      <td><%=form.name_child%></td>
-
-
-      <td> 
-
-
-      	<%if form.validation == 1%>
-
-            <div class="alert alert-success" role="alert">
-                 Анкета прошла регистрацию
-              </div>
-
-
-      <% else%>
-            <div class="alert alert-danger" role="alert">
-                 Анкета еще не прошла регистрацию
-
-                 <%if form.notes !=nil%>
-                 смотрите комментарии
-                 <%end%>
-
-              </div>
-
-      <%end%>
-
-
-      </td>
-      <td>
-
-		<%if form.payment == 1%>
-
-            <div class="alert alert-success" role="alert">
-                 Анкета оплачена
-              </div>
-
-
-      <% else%>
-            <div class="alert alert-danger" role="alert">
-                 Анкета не оплачена
-              </div>
-		<%end%>
-
-      </td>
-
-
-
-
-      <td> <a href = <%=form_url(form.id)%>> <button type="button"   class="btn btn-outline-success"> Открыть</button></a></td>
-
-    </tr>
-
-     </tbody>
-	<%end%> 
-</table>
-<br/>
-
-</div>
-
-
-	<%end%>              
-       
-                 
-
-
-    
-
-
-            
-               
-
-<%end%>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+       </div>
+          <div class="ol-lg-10 col-md-10 col-sx-4 col-sm-4 mx-auto">
+            <a class="nav-link" href=<%=new_user_form_url(current_user.id)%>><button type="button" class="btn btn-outline-primary">Запись в лагерь</button></a>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Иванов Иван Иваныч</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+           
+          </div>
+    <div class="col-sm">
+       </div>
+  </div>
 </div>

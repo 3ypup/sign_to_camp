@@ -51,15 +51,14 @@ end
 end
 
 def create
+ 
+    @user = User.find(params[:user_id])
+    @user.forms.create(form_params)
 
-    @form = Form.new(form_params)
-      
-      if  @form.save
-        redirect_to @form
-      else
-        render action: 'new'
-      end
-  end
+    redirect_to user_path(@user)
+ 
+
+end
 
 def show
 recount

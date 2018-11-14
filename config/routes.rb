@@ -6,7 +6,8 @@ get '/' => "forms#index"
 
 get "/forms/refreshed/" => "forms#refreshed"
 
-resources :users
-resources :forms
- 
+resources :users do
+  resources :forms
+end
+
 end

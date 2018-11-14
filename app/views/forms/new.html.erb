@@ -2,7 +2,7 @@
 
 <div class="alert alert-secondary mx-auto" style="width: 800px;" role="alert">
 
-<%= form_for :form,  url: forms_path do |f| %> 
+<%= form_for :form,  url: user_forms_path do |f| %> 
 
 
 
@@ -34,10 +34,10 @@
   <p1> <%= f.text_field  :name_parent, size: "50x1", value: @form.name_parent  %> </p1><br/><br/>
 
   <t2>4.Телефоны родителей(опекунов)</t2><br/>
-  <p1> <%= f.text_field  :phones_parent, size: "50x1", value: @form.phones_parent  %> </p1><br/><br/>
+  <p1> <%= f.phone_field  :phones_parent, size: "50x1", value: @form.phones_parent  %> </p1><br/><br/>
   
   <t2>5.Телефон подростка</t2><br/>
-  <p1> <%= f.text_field  :phone_child, size: "50x1", value: @form.phone_child  %> </p1><br/><br/>
+  <p1> <%= f.phone_field  :phone_child, size: "50x1", value: @form.phone_child  %> </p1><br/><br/>
 
   <t2>6.Почта</t2><br/>
   <p1> <%= f.email_field :email, size: "50x1", value: @form.email  %> </p1><br/><br/>
