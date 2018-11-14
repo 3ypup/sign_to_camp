@@ -68,9 +68,10 @@
                 <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary">Ждут согласования: <%=@count%></button></a>
               </li>
               <%end%>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary">Выход</button></a>
-              </li>
+
+        
+
+             
  
  
 
@@ -82,7 +83,12 @@
 
     </div>
     <div class="col-sm">
-         <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary"><%=current_user.email %></button></a>
+      <small class = "float-right" ><%= link_to 'Выйти?', destroy_user_session_path, :method => :delete %></small>
+         <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary "><%=current_user.email %></button></a>
+       
+   
+    
+        
     </div>
   </div>
 </div>
