@@ -3,7 +3,14 @@
     <div class="col-sm">
        </div>
           <div class="ol-lg-10 col-md-10 col-sx-2 col-sm-2 mx-auto">
-            <a class="nav-link" href=<%=new_user_form_url(current_user.id)%>><button type="button" class="btn btn-outline-primary">Запись в лагерь</button></a>
+            
+            <a class="float-left btn btn-outline-success" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a>
+                
+
+                <a class="float-right btn btn-outline-success" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %><br/><br/><hr/>
+
+
+
             <table class="table">
               <thead>
                 <tr>
@@ -16,6 +23,7 @@
                 </tr>
               </thead>
               <tbody>
+
 
                  <%@forms.each_with_index do |form,i|%>
                 <tr>
