@@ -29,7 +29,12 @@ end
 
 def index
 
+
+
+
 @forms=Form.all
+
+
 recount
 
 
@@ -55,14 +60,16 @@ def create
     @user = User.find(params[:user_id])
     @user.forms.create(form_params)
 
-    redirect_to user_path(@user)
+    redirect_to user_forms_path(@user)
  
 
 end
 
 def show
 recount
-  @form = Form.find(params[:id])
+
+  @user = User.find(params[:user_id])
+  @form = @user.forms.find(params[:id])
 
 
   
@@ -80,7 +87,9 @@ def update
 
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
-        redirect_to @form
+        redirect_to user_form_path(@form.user_id)
+
+       
 
       else
         render action: 'edit'
