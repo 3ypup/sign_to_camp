@@ -1,7 +1,7 @@
 class Form < ApplicationRecord
 acts_as_xlsx
 
-belongs_to :user
+
 
   validates :name_child, presence: {:message => "Введите имя подростка!"}
   validates :date_of_birth, presence: {:message => "Введите дату рождения подростка!"}
@@ -17,5 +17,5 @@ mount_uploader :photo_child, PchildUploader
 mount_uploader :photo_passport, PpassportUploader
 mount_uploader :photo_medical, PmedicalUploader
 
-
+belongs_to :user
 end

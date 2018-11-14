@@ -14,6 +14,8 @@ end
 
 
 def new
+
+
 @form = Form.new
 
 
@@ -58,7 +60,7 @@ end
 def create
  
     @user = User.find(params[:user_id])
-  @form = Form.new(form_params)
+    @form = @user.forms.new(form_params)
 
       if  @form.save
         redirect_to user_forms_path(@user)
@@ -107,6 +109,7 @@ def update
 
   def form_params
     params.require(:form).permit(
+
       :author,
       :name_child,
       :date_of_birth,
