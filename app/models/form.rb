@@ -12,8 +12,7 @@ acts_as_xlsx
   validates :photo_child, presence: {:message => "Добавьте фотографию подростка!"}
   validates :photo_passport, presence: {:message => "Добавьте скан документа удостоверяющего личность!"}
   validates :photo_medical, presence: {:message => "Добавьте скан медицинского полиса!"}
-  validates :accept, presence: {:message => "Для продолжения необходимо согласиться на обработку персональных данных!"}
-
+  validates_numericality_of :accept, :equal_to => 1, :message => "Необходимо согласиться с условиями обработки данных для продолжения!"
 
 mount_uploader :photo_child, PchildUploader
 mount_uploader :photo_passport, PpassportUploader
