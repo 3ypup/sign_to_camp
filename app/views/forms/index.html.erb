@@ -3,15 +3,13 @@
     <div class="col-sm">
        </div>
           <div class="ol-lg-10 col-md-10 col-sx-2 col-sm-2 mx-auto">
-            
-
-            
             <a class="float-left btn btn-outline-success" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a>
-                
-<%if current_user.level >1%>
+                              
+            <%if current_user.level >1%>
+
                 <a class="float-right btn btn-outline-success" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %><br/><br/><hr/>
 
-              <%end%>
+            <%end%>
 
             <table class="table">
               <thead>
@@ -21,11 +19,9 @@
                   <th scope="col">Анекта согласована</th>
                   <th scope="col">Оплата</th>
                   <th scope="col">Открыть анкету</th>
-
                 </tr>
               </thead>
               <tbody>
-
 
                  <%@forms.each_with_index do |form,i|%>
                 <tr>
@@ -47,27 +43,17 @@
 
                   <div class="alert alert-danger" role="alert">
                     Анкета еще не прошла проверку
-
-
                     <%if form.notes != nil %>
                     , есть комментарии.
                     <%end%>
-
-
                   </div>
-
 
                 <%end%>
 
-
-
               </td>
-
-
 
                <td><%if form.payment==1%>
                 
-
                 <div class="alert alert-success" role="alert">
                     Платеж подтвержден
                   </div>
@@ -84,24 +70,15 @@
               </td>
 
               <td>
-                
+                 <a class="nav-link" href=<%=user_form_url(form.user_id,form.id)%>><button type="button" class="btn btn-outline-primary">Открыть</button></a>
+                </td>
 
-
-              <a class="nav-link" href=<%=user_form_url(form.user_id,form.id)%>><button type="button" class="btn btn-outline-primary">Открыть</button></a>
-              
-
-
-              </td>
-
-                </tr>
+              </tr>
               <%end%>
              
               </tbody>
             </table>
 
-
-
-           
           </div>
     <div class="col-sm">
        </div>
