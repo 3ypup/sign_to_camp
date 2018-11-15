@@ -82,12 +82,24 @@
   <p1> <%= f.file_field :photo_medical %> </p1><br/><br/>
      
 
+
    <%= f.hidden_field  :refresh,  value: 1  %> 
  
-  
 
 
- 
+
+<!-- Large modal -->
+<button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg">Я принимаю условия обработки персональных данных</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <%=render file: "/media/amber/BE8EF2C28EF2726F/Projects/rails/sign_to_camp/app/views/forms/accept.html.erb"%>
+    </div>
+  </div>
+</div>
+<p1> <%= f.check_box  :accept,  value: "0"  %> ДА  </p1><br/>
+
 
   <button class="btn btn-outline-primary" type="submit">отправить анкету</button>
  <%end%>

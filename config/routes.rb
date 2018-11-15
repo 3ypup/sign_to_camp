@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 get '/' => "forms#index"
 
 get "/forms/refreshed/" => "forms#refreshed"
+get "/forms/accept" =>"forms#accept"
 
 resources :users do
   resources :forms
