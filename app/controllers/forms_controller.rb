@@ -144,6 +144,7 @@ def update
       :validation,
       :payment,
       :refresh,
+      :accept,
 
       :photo_child,
       :photo_passport,
