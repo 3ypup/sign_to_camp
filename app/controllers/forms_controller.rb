@@ -84,9 +84,12 @@ end
 def show
 recount
 
-  @user = User.find(params[:user_id])
+@user = User.find(params[:user_id])
 
-UserMailer.signup_confirmation(@user).deliver
+@mail =  UserMailer.signup_confirmation(@user).deliver
+
+
+
 
 if current_user.level > 1
 
@@ -102,7 +105,7 @@ end
 
 
 def edit
-@form = Form.find(params[:id])
+  @form = Form.find(params[:id])
 end
 
 def update
@@ -112,15 +115,11 @@ def update
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
         redirect_to user_form_path(@form.user_id)
-
-
-
       else
         render action: 'edit'
       end
 
  end     
-
 
 
 
