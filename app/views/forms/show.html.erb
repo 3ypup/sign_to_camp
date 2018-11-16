@@ -28,95 +28,95 @@
 
       <%end%>
 
-            <p4 class="float-left">
-              1.Имя участника</p4>
+            <hr/><p4 class="float-left">
+              1.Имя участника</p4><br/>
             <p4 class="float-right">
-              <%=@form.name_child%></p4><br/><hr/>
+              <%=@form.name_child%></p4><br/><br/><br/>
 
-          <img class="float-right img-responsive" style="width: 300px" src=<%=@form.photo_child%>><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+          <img class="float-right img-responsive" style="width: 300px" src=<%=@form.photo_child%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
-            <p4 class="float-left">
-              2. Дата рождения</p4>
+            <hr/><p4 class="float-left">
+              2. Дата рождения:</p4><br/>
             <p4 class="float-right">
-              <%=@form.date_of_birth.strftime("%d.%m.%Y")%></p4><br/><hr/>
+              <%=@form.date_of_birth.strftime("%d.%m.%Y")%></p4><br/><br/><br/>
               
  
-            <p4 class="float-left">
-              3.Имена и отчества родителей(опекунов)</p4>
+            <hr/><p4 class="float-left">
+              3.Имена и отчества родителей(опекунов):</p4><br/>
             <p4 class="float-right">
-              <%=@form.name_parent%></p4><br/><hr/>
+              <%=@form.name_parent%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              4.Телефоны родителей(опекунов)</p4>
+            <hr/><p4 class="float-left">
+              4.Телефоны родителей(опекунов):</p4><br/>
             <p4 class="float-right">
-              <%=@form.phones_parent%></p4><br/><hr/>
+              <%=@form.phones_parent%></p4><br/><br/><br/>
 
-              <p4 class="float-left">
-              5.Телефон подростка</p4>
+             <hr/><p4 class="float-left">
+              5.Телефон подростка:</p4><br/>
             <p4 class="float-right">
-              <%=@form.phone_child%></p4><br/><hr/>
+              <%=@form.phone_child%></p4><br/><br/><br/>
              
-             <p4 class="float-left">
-              6.Контактная почта</p4>
+             <hr/><p4 class="float-left">
+              6.Контактная почта:</p4><br/>
             <p4 class="float-right">
-              <%=@form.email%></p4><br/><hr/>
+              <%=@form.email%></p4><br/><br/><br/>
 
 
-            <p4 class="float-left">
-              7.Домашний адрес</p4>
+            <hr/><p4 class="float-left">
+              7.Домашний адрес:</p4><br/>
             <p4 class="float-right">
-              <%=@form.adress%></p4><br/><hr/>
+              <%=@form.adress%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              8.Пищевые ограничения, аллергические реакции, заболевания</p4>
+           <hr/><p4 class="float-left">
+              8.Пищевые ограничения, аллергические реакции, заболевания:</p4>
             <p4 class="float-right">
-              <%=@form.food_allergy%></p4><br/><hr/>
+              <%=@form.food_allergy%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              9.Является ли подросток вегетарианцем?</p4>
+            <hr/><p4 class="float-left">
+              9.Является ли подросток вегетарианцем:</p4><br/>
             <p4 class="float-right">
-              <%=$vegan[@form.vegan.to_i]%></p4><br/><hr/>
+              <%=$vegan[@form.vegan.to_i]%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              10.Наблюдался ли ваш ребенок у невролога, психиатра?</p4>
+            <hr/><p4 class="float-left">
+              10.Наблюдался ли ребенок у невролога, психиатра:</p4><br/>
             <p4 class="float-right">
-              <%=@form.psycho%></p4><br/><hr/>
+              <%=@form.psycho%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              11.Важные события</p4>
+            <hr/><p4 class="float-left">
+              11.Важные события:</p4><br/>
             <p4 class="float-right">
-              <%=@form.events%></p4><br/><hr/>
+              <%=@form.events%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              12.Дополнительные сведения</t2></p4>
+            <hr/><p4 class="float-left">
+              12.Дополнительные сведения:</t2></p4><br/>
             <p4 class="float-right">
-              <%=@form.also%></p4><br/><hr/>
+              <%=@form.also%></p4><br/><br/><br/>
 
-            <p4 class="float-left">
-              13.Дополнительные телефоны и контактные лица</t2></p4>
+            <hr/><p4 class="float-left">
+              13.Дополнительные телефоны и контактные лица:</t2></p4><br/>
             <p4 class="float-right">
-              <%=@form.bonus_contacts%></p4><br/><hr/>
+              <%=@form.bonus_contacts%></p4><br/><br/><br/>
  
-             <p4 class="float-left">
-              14.Друзья, которые едут в лагерь</t2></p4>
+             <hr/><p4 class="float-left">
+              14.Друзья, которые едут в лагерь:</t2></p4><br/>
             <p4 class="float-right">
-              <%=@form.friends%></p4><br/><hr/>    
+              <%=@form.friends%></p4><br/><br/><br/>    
 
-          <p4 class="float-left">
-            15.скан паспорта</t2></p4>
-          <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_passport%>><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+          <hr/><p4 class="float-left">
+            15.скан паспорта:</t2></p4><br/>
+          <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_passport%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-          <p4 class="float-left">
-            15.скан полиса</t2></p4>
-          <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+          <hr/><p4 class="float-left">
+            15.скан полиса:</t2></p4><br/>
+          <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           
  <% if @form.validation !=1%>
 
           <p4 class="float-left">
             Комментарии</t2></p4>
           <h2 class="float-right">
-              <%=@form.notes%></h2><br/><hr/>    
+              <%=@form.notes%></h2><br/><br/><br/>    
 
 
 
@@ -148,7 +148,7 @@
 
           <button class="btn btn-outline-success float-right" type="submit">Зарегистрировать анкету</button>
 
-        <%end%><br/><hr/>
+        <%end%><br/><br/><br/>
 
          <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
           <p4> <%= f.hidden_field :payment, value: 1 %> </p4>
