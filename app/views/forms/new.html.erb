@@ -38,8 +38,11 @@
   <t2>4.Телефоны родителей(опекунов)</t2><br/>
   <p1> <%= f.phone_field  :phones_parent, size: "50x1", value: @form.phones_parent  %> </p1><br/><br/>
   
+<%@a = @form.phone_child%>
+<% @a || @a = "нет"%>
+
   <t2>5.Телефон подростка</t2><br/>
-  <p1> <%= f.phone_field  :phone_child, size: "50x1", value: @form.phone_child  %> </p1><br/><br/>
+  <p1> <%= f.phone_field  :phone_child, size: "50x1", value:(@form.phone_child || @form.phone_child = "нет") %> </p1><br/><br/>
 
   <t2>6.Почта</t2><br/>
   <p1> <%= f.email_field :email, size: "50x1", value: @form.email  %> </p1><br/><br/>
@@ -54,11 +57,11 @@
   <p1> <%= f.check_box  :vegan,  value: @form.vegan  %> ДА  </p1><br/><br/>
       
   <t2>10.Наблюдался ли ваш ребенок у невролога, психиатра?</t2><br/>
-  <p1> <%= f.text_area :psycho, size: "50x3", value: @form.psycho  %> </p1><br/><br/>
+  <p1> <%= f.text_area :psycho, size: "50x3", value: (@form.psycho || @form.psycho = "нет")  %> </p1><br/><br/>
 
   <t2>11.Происходили ли в жизни подростка за последний год важные события (переезд в другой город, рождение
 брата или сестры, смерть родственника)?</t2><br/>
-  <p1> <%= f.text_area  :events, size: "50x3", value: @form.events  %> </p1><br/><br/>
+  <p1> <%= f.text_area  :events, size: "50x3", value: (@form.events || @form.events ="нет")   %> </p1><br/><br/>
 
   <t2>12.Дополнительно хочу сообщить организаторам</t2><br/>
   <p1> <%= f.text_area  :also, size: "50x3", value: @form.also  %> </p1><br/><br/> 
@@ -141,6 +144,8 @@
   </div>
 </div>
 <br/>
+
+
 
 
   <button class="btn btn-outline-primary" type="submit">отправить анкету</button>
