@@ -86,6 +86,8 @@ recount
 
   @user = User.find(params[:user_id])
 
+UserMailer.signup_confirmation(@user).deliver
+
 if current_user.level > 1
 
   @form = @user.forms.find(params[:id])
