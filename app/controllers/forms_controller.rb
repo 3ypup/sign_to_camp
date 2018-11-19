@@ -122,8 +122,8 @@ def update
      if  @form.update(form_params) 
 
       if current_user.level>1
-    
-      UserMailer.signup_confirmation(@form).deliver
+    @url = user_form_url(form_params)
+      UserMailer.signup_confirmation(@form, @url).deliver
     end
         redirect_to user_form_path(@form.user_id)
       else

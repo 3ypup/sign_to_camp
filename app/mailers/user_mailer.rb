@@ -5,14 +5,16 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.signup_confirmation.subject
   #
-  def signup_confirmation(user)
+  def signup_confirmation(user, url)
 
 
     @greeting = "Hi"
 
     @form = user
     @notes=user.notes
-    @url = Form.find(@form.id)
+    @url = url
+
+
   mail to: user.email, subject: "Анкета в лагерь"
   end
 end
