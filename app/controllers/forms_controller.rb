@@ -6,6 +6,8 @@ end
 
 $vegan = ["Нет", "Да"]
 
+$message=["Reject", "Accept","Pay"]
+
 def recount
 
 if current_user.level>1  
@@ -120,9 +122,10 @@ def update
 
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
-      
+
       if current_user.level>1
-      UserMailer.signup_confirmation(@form).deliver
+        $message=[params[@m]]
+      UserMailer.signup_confirmation(@form, @message).deliver
     end
         redirect_to user_form_path(@form.user_id)
       else
@@ -156,6 +159,7 @@ def update
       :payment,
       :refresh,
       :accept,
+
 
       :photo_child,
       :photo_passport,

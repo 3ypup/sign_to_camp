@@ -5,7 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.signup_confirmation.subject
   #
-  def signup_confirmation(user)
+  def signup_confirmation(user, message)
+
+    @message= message
     @greeting = "Hi"
 
     @form = user

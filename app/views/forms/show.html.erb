@@ -134,6 +134,7 @@
           <p4> <%= f.text_area :notes, size: "80x5", value: @form.notes %> </p4><br/>
           <p4> <%= f.hidden_field :validation, value: 0 %> </p4><br/>
             <%= f.hidden_field  :refresh,  value: 0  %> 
+            <%@m=0  %> 
          
             
           
@@ -147,7 +148,7 @@
         <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
           <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
             <%= f.hidden_field  :refresh,  value: 0  %> 
-
+            <%@m=1  %> 
           <button class="btn btn-outline-success float-right" type="submit">Зарегистрировать анкету</button>
 
         <%end%><br/><br/><br/>
@@ -155,6 +156,8 @@
          <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
           <p4> <%= f.hidden_field :payment, value: 1 %> </p4>
             <%= f.hidden_field  :refresh,  value: 0  %> 
+
+            <%@m=2  %> 
           <button class="btn btn-outline-success float-right" type="submit">Подтвердить опллату</button>
 
         <%end%>
