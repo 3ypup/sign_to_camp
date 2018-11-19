@@ -121,11 +121,19 @@ def update
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
 
-      if current_user.level>1
-    @url = user_form_url(form_params)
-      UserMailer.signup_confirmation(@form, @url).deliver
-    end
+        if current_user.level>1
+        @url = user_form_url(form_params)
+          if @form.validation && @form.payment == 1
+            UserMailer.success_confirmation(@form, @url).deliver
+
+          else
+          UserMailer.signup_confirmation(@form, @url).deliver
+         end
+
+         end    
         redirect_to user_form_path(@form.user_id)
+
+
       else
         render action: 'edit'
       end

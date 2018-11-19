@@ -17,4 +17,19 @@ class UserMailer < ApplicationMailer
 
   mail to: user.email, subject: "Анкета в лагерь"
   end
+
+
+
+  def success_confirmation(user, url)
+
+
+    @greeting = "Hi"
+
+    @form = user
+    @notes=user.notes
+    @url = url
+
+
+  mail to: user.email, subject: "Вы записали в лагерь участника!"
+  end
 end
