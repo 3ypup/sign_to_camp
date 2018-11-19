@@ -4,9 +4,6 @@ def authentificate
   before_action :authenticate_user!
 end
 
-$vegan = ["Нет", "Да"]
-
-$message=["Reject", "Accept","Pay"]
 
 def recount
 
@@ -124,8 +121,8 @@ def update
      if  @form.update(form_params) 
 
       if current_user.level>1
-        $message=[params[@m]]
-      UserMailer.signup_confirmation(@form, @message).deliver
+    
+      UserMailer.signup_confirmation(@form).deliver
     end
         redirect_to user_form_path(@form.user_id)
       else
