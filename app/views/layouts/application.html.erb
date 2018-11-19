@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SignToCamp</title>
+    <title>Подростковый клуб храма Космы и Дамиана</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -66,8 +66,14 @@
               <li class="nav-item">
                 <a class="nav-link" href=<%=forms_refreshed_url%>><button type="button" class="btn btn-outline-primary">Ждут согласования: <%=@count%></button></a>
               </li>
-              <%end%>
+               <%end%>
 
+              <li class="nav-item">
+              
+         <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary "><%=current_user.email %></button></a>
+
+         <small class = "float-right" ><%= link_to 'Выйти?', destroy_user_session_path, :method => :delete %></small>
+              </li>  
             </ul>
 
           </div>
@@ -75,8 +81,7 @@
 
     </div>
     <div class="col-sm">
-      <small class = "float-right" ><%= link_to 'Выйти?', destroy_user_session_path, :method => :delete %></small>
-         <a class="nav-link" href="#"><button type="button" class="btn btn-outline-primary "><%=current_user.email %></button></a>
+
        
    
     

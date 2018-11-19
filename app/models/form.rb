@@ -7,8 +7,15 @@ acts_as_xlsx
   validates :date_of_birth, presence: {:message => "Введите дату рождения подростка!"}
   validates :name_parent, presence: {:message => "Введите имя родителей(опекунов)!"}
   validates :phones_parent, presence: {:message => "Введите контакты родителей(опекунов)!"}
-  #validates :phone_child, presence: {:message => "Введите телефон подростка!"}
+  validates :phone_child, presence: {:message => "Введите телефон подростка!"}
+  validates :phone_child, presence: {:message => "Введите телефон подростка!"}
+  validates :email, presence: {:message => "Введите адрес электронной почты!"}
   validates :adress, presence: {:message => "Введите домашний адрес!"}
+  validates :food_allergy, presence: {:message => "Введите информацию по пищевым ограничениям!"}
+  validates :psycho, presence: {:message => "Напишите, пожалуйста, Наблюдался ли ваш ребенок у невролога, психиатра!"}
+  validates :events, presence: {:message => "Напишите, пожалуйста, происходили ли в жизни подростка за последний год важные события !"}
+  validates :also, presence: {:message => "Напишите, пожалуйста, есть ли дополнительная информация, которую Вы хотите сообщить организаторам!"}
+  validates :bonus_contacts, presence: {:message => "Напишите, пожалуйста, есть ли дополнительные телефоны и контактные лица, с которыми организаторы могут связаться!"}
   validates :photo_child, presence: {:message => "Добавьте фотографию подростка!"}
   validates :photo_passport, presence: {:message => "Добавьте скан документа удостоверяющего личность!"}
   validates :photo_medical, presence: {:message => "Добавьте скан медицинского полиса!"}
