@@ -97,7 +97,7 @@ if current_user.level > 1
 
   @form = @user.forms.find(params[:id])
 
-  @mail =  UserMailer.signup_confirmation(@form).deliver
+
 
 else
   @form = current_user.forms.find(params[:id])
@@ -110,6 +110,8 @@ end
 
 def edit
   @form = Form.find(params[:id])
+
+
 end
 
 def update
@@ -118,6 +120,10 @@ def update
 
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
+      
+      if current_user.level>1
+      UserMailer.signup_confirmation(@form).deliver
+    end
         redirect_to user_form_path(@form.user_id)
       else
         render action: 'edit'
