@@ -5,6 +5,22 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.signup_confirmation.subject
   #
+
+def new_form(user, url)
+
+
+    @greeting = "Hi"
+
+    @form = user
+
+    @url = url
+
+
+  mail to: user.email, subject: "Новая анкета"
+  end
+
+
+
   def signup_confirmation(user, url)
 
 

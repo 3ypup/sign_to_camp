@@ -71,8 +71,11 @@ def create
  
     @user = User.find(params[:user_id])
     @form = @user.forms.new(form_params)
+    @url = user_forms_path(@user)
+    @admin = User.where(level:4).take
 
       if  @form.save
+        UserMailer.new_form(@admin, @url).deliver
         redirect_to user_forms_path(@user)
       else
         render action: 'new'
@@ -86,17 +89,9 @@ recount
 
 @user = User.find(params[:user_id])
 
-
-
-
-
-
-
-
 if current_user.level > 1
 
   @form = @user.forms.find(params[:id])
-
 
 
 else
