@@ -71,7 +71,7 @@ def create
  
     @user = User.find(params[:user_id])
     @form = @user.forms.new(form_params)
-    @url = user_forms_path(@user)
+    @url = user_forms_url(@user)
     @admin = User.where(level:4).take
 
       if  @form.save
