@@ -6,6 +6,15 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 before_action :authenticate_user!
 
 
+def recount
+
+if current_user.level>1  
+@forms_count = Form.where(refresh: 1) 
+
+@count = @forms_count.count
+
+end
+end
   protected
 
   def configure_permitted_parameters
