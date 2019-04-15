@@ -71,12 +71,12 @@
    <header id="header" class="row">   
 
     <div class="header-logo">
-      <a href=<%user_posts_path(current_user.id)%>>КОСМА</a>
+      <a href="/"%>>КОСМА</a>
      </div>
 
      <nav id="header-nav-wrap">
       <ul class="header-main-nav">
-        <li class="current"><a href=<%=user_posts_path(current_user.id)%> >ГЛАВНАЯ</a></li>
+        <li class="current"><a href="/" >ГЛАВНАЯ</a></li>
         
  
         <li><a href="#My" title="АРХИВ">МОИ АНКЕТЫ</a></li>
@@ -84,7 +84,7 @@
         <%if current_user.level>1%>
              
 
-               <li><a href="#archive" title="АРХИВ">АРХИВ</a></li>
+               <li><a href="/forms/archive" title="АРХИВ">АРХИВ</a></li>
                 <a class="button button-primary cta" href=<%=forms_refreshed_url%>>Ждут согласования: <%=@count%></a>
               
                <%end%>

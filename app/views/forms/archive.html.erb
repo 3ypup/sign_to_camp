@@ -1,0 +1,151 @@
+<%if current_user.level==1%>
+
+<%@v=0%>
+<%@p=0%>
+
+<%@forms.each_with_index do |form,i|%>
+<%@v+=form.validation.to_i%>
+<%@p+=form.payment.to_i%>
+<%end%>
+
+
+
+
+<%if @v>0 && @p<@v%>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
+       </div>
+          <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
+              <div class="alert alert-success" role="alert">
+             Отлично!!! Ваша анкета проверена одним из наших ведущих и зарегестрированна.<br/> Осталось только оплатить участие.<br/> 
+             Инструкция:<hr/>
+
+            Оргвзнос: 8700 рублей при оплате до 20 декабря и 9700 руб при оплате с 21 декабря.
+
+            Деньги можно перевести на карту Сбербанка. Номер карточки: 4817 7601 3883 1197
+
+            Дмитриевский Петр Витальевич.
+
+            !!!! В назначении платежа обязательно укажите ФИО ребенка и год рождения. Иначе мы не сможем понять, чей оргвзнос оплачен. Когда переведете деньги, сообщите, пожалуйста, смс или эл. письмом Евгении, чтобы она подтвердила Вам получение оплаты
+
+            Во избежание блокировки банком нашей карты, просим переводить неровную сумму с копейками, например, 8700 руб 11 копеек, или 9700 рублей 02 копейки.
+            </div>
+          <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
+          </div>
+          </div>
+        </div>
+    </div>
+<%end%>
+<%end%>
+
+
+
+
+   <!-- styles
+   ================================================== -->
+   <section id="styles">
+        
+
+
+
+
+      <div class="row add-bottom">
+
+          <div class="col-twelve">
+
+            <h3>Список участников</h3>
+
+            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a></p3>
+                              
+            <%if current_user.level >1%>
+
+                <p3> <a class="float-right button button-primary cta" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %></a></p3><br/><br/><hr/>
+
+            <%end%></p>
+
+            <div class="table-responsive">
+
+                <table>
+                        <thead>
+                           <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Год регистрации</th>
+                  <th scope="col">Участник</th>
+                  <th scope="col">Анекта согласована</th>
+                  <th scope="col">Оплата</th>
+                  <th scope="col">Открыть анкету</th>
+
+
+                           </tr>
+                        </thead>
+                        <tbody>
+                         <%@forms.each_with_index do |form,i|%>
+                <tr>
+                 
+                  <th scope="row"><%=i+1%></th>
+
+                  <td><%=form.created_at%></td>
+                  <td><%=form.name_child%></td>
+
+
+              <td><%if form.validation==1%>
+                
+
+                <div class="alert alert-success" role="alert">
+                    Анкета одобрена
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Анкета еще не прошла проверку
+                    <%if form.notes != nil %>
+                    , есть комментарии.
+                    <%end%>
+                  </div>
+
+                <%end%>
+
+              </td>
+
+               <td><%if form.payment==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Платеж подтвержден
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Платеж еще не подтвержден
+                  </div>
+
+
+                <%end%>
+
+              </td>
+
+              <td>
+                 <a class="nav-link" href=<%=user_form_url(form.user_id,form.id)%>><button type="button" class="btn btn-outline-primary">Открыть</button></a>
+                </td>
+
+              </tr>
+              <%end%>
+                        </tbody>
+                   </table>
+
+            </div>          
+
+          </div>
+            
+       </div> <!-- end row -->
+        
+
+
+
+    </section> <!-- end styles -->  
+
+
+
+

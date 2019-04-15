@@ -6,6 +6,7 @@ get '/' => "posts#index"
 
 get "/forms/refreshed/" => "forms#refreshed"
 get "/forms/accept" =>"forms#accept"
+get "/forms/archive" =>"forms#archive"
 
 resources :users do
   resources :forms

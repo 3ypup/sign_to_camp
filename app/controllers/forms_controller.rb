@@ -25,6 +25,9 @@ recount
 
 end
 
+
+
+
 def index
 
 
@@ -32,7 +35,7 @@ def index
 
 if current_user.level >1
 
-  @forms = Form.all
+  @forms = Form.where(archive: false)
 
 else
 
@@ -58,6 +61,41 @@ respond_to do | format |
  }  
 end
 end
+
+def archive
+
+
+@user = current_user
+
+if current_user.level >1
+
+  @forms = Form.where(archive: true)
+
+else
+
+  forms=@user.forms.all
+
+end
+recount
+
+
+respond_to do | format |  
+    format.html # index.html.erb
+    format.json { render :json => @forms }
+    format.xlsx {
+      xlsx_package = Form.to_xlsx
+      begin 
+        temp = Tempfile.new("forms.xlsx") 
+        xlsx_package.serialize "/tmp/forms"
+        send_file "/tmp/forms", :filename => "Список участников.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ensure
+        temp.close 
+        temp.unlink
+    end
+ }  
+end
+end
+
 
 def create
  
