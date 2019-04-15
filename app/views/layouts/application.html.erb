@@ -71,20 +71,27 @@
    <header id="header" class="row">   
 
     <div class="header-logo">
-      <a href="index.html">КОСМА</a>
+      <a href="/">КОСМА</a>
      </div>
 
      <nav id="header-nav-wrap">
       <ul class="header-main-nav">
-        <li class="current"><a href=<%=user_posts_path(current_user.id)%> >Главная</a></li>
+        <li class="current"><a href=<%=user_posts_path(current_user.id)%> >ГЛАВНАЯ</a></li>
         
-        <li><a href="index.html#about" title="about">About</a></li>
-        <li><a href="index.html#pricing" title="pricing">Pricing</a></li>
-        <li><a href="index.html#testimonials" title="testimonials">Testimonials</a></li>
-        <li><a class="smoothscroll"  href="#download" title="download">Download</a></li>  
-      </ul>
+ 
+        <li><a href="#My" title="АРХИВ">МОИ АНКЕТЫ</a></li>
 
-         <a href=<%=user_forms_path(current_user.id)%> title="sign-up" class="button button-primary cta">Запись в лагерь</a>
+        <%if current_user.level>1%>
+             
+
+               <li><a href="#archive" title="АРХИВ">АРХИВ</a></li>
+                <a class="button button-primary cta" href=<%=forms_refreshed_url%>>Ждут согласования: <%=@count%></a>
+              
+               <%end%>
+ 
+              <a href=<%=user_forms_path(current_user.id)%> title="sign-up" class="button button-primary cta">Запись в лагерь</a>
+    
+          </ul>
     </nav>
 
     <a class="header-menu-toggle" href="#"><span>Menu</span></a>      
