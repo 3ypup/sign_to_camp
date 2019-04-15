@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_123540) do
+ActiveRecord::Schema.define(version: 2019_04_13_123755) do
 
   create_table "forms", force: :cascade do |t|
     t.text "name_child"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2018_11_15_123540) do
     t.integer "refresh"
     t.integer "accept"
     t.index ["user_id"], name: "index_forms_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "author"
+    t.text "theme"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

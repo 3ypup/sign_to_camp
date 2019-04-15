@@ -16,6 +16,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+       <!--- basic page needs
+   ================================================== -->
+
+   <meta name="description" content="">
+   <meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -31,13 +42,56 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
  
 
+<!--theme-->
+<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="/css/base.css">
+   <link rel="stylesheet" href="/css/vendor.css">
+   <link rel="stylesheet" href="/css/main.css">
+
+   <style type="text/css" media="screen">
+      #styles { 
+        background: white;
+       padding-top: 15rem;
+       padding-bottom: 12rem;     
+    }       
+   </style>  
+
+
 
 
 
   </head>
 
-  <body>
+  <body id="top">
 <%if user_signed_in?%>
+
+    <!-- header 
+   ================================================== -->
+   <header id="header" class="row">   
+
+    <div class="header-logo">
+      <a href="index.html">Dazzle</a>
+     </div>
+
+     <nav id="header-nav-wrap">
+      <ul class="header-main-nav">
+        <li class="current"><a href=<%=user_posts_path(current_user.id)%> >Главная</a></li>
+        
+        <li><a href="index.html#about" title="about">About</a></li>
+        <li><a href="index.html#pricing" title="pricing">Pricing</a></li>
+        <li><a href="index.html#testimonials" title="testimonials">Testimonials</a></li>
+        <li><a class="smoothscroll"  href="#download" title="download">Download</a></li>  
+      </ul>
+
+         <a href=<%=user_forms_path(current_user.id)%> title="sign-up" class="button button-primary cta">Запись в лагерь</a>
+    </nav>
+
+    <a class="header-menu-toggle" href="#"><span>Menu</span></a>      
+    
+  </header> <!-- end header -->
+
+<!--
     <div class="container">
   <div class="row">
     <div class="col-sm">
@@ -90,6 +144,8 @@
     </div>
   </div>
 </div>
+-->
+
 
 <%end%>
 
@@ -128,8 +184,20 @@
     </footer>
 
   <hr/>  
-  </body>
-</html>
+ 
+
+
+ 
+    <!-- Java Script
+    ================================================== -->
+    <script src="/js/jquery-2.1.3.min.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+
+       <!-- script
+   ================================================== -->
+   <script src="/js/modernizr.js"></script>
+   <script src="/js/pace.min.js"></script>
 
   </body>
 
