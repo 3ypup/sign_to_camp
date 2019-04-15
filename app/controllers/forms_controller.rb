@@ -39,7 +39,7 @@ if current_user.level >1
 
 else
 
-  forms=@user.forms.all
+  @forms=@user.forms.all
 
 end
 recount
@@ -73,7 +73,7 @@ if current_user.level >1
 
 else
 
-  forms=@user.forms.all
+  @forms=@user.forms.all
 
 end
 recount
