@@ -12,6 +12,6 @@ get "/forms/myforms" =>"forms#myforms"
 resources :users do
   resources :forms
   resources :posts
-end
 
+end
 end

@@ -223,6 +223,7 @@ def update
       :payment,
       :refresh,
       :accept,
+      :archive,
 
 
       :photo_child,
