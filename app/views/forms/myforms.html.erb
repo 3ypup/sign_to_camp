@@ -1,0 +1,89 @@
+<%if current_user.level==1%>
+
+<%@v=0%>
+<%@p=0%>
+
+<%@forms.each_with_index do |form,i|%>
+<%@v+=form.validation.to_i%>
+<%@p+=form.payment.to_i%>
+<%end%>
+
+
+
+
+
+<%end%>
+
+
+
+
+   <!-- styles
+   ================================================== -->
+   <section id="styles">
+        
+
+
+
+
+      <div class="row add-bottom">
+
+          <div class="col-twelve">
+
+            <h3>Зарегестрированные ранее анкеты</h3>
+
+            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a></p3>
+                              
+            <%if current_user.level >1%>
+
+                <p3> <a class="float-right button button-primary cta" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %></a></p3><br/><br/><hr/>
+
+            <%end%></p>
+
+            <div class="table-responsive">
+
+                <table>
+                        <thead>
+                           <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Год регистрации</th>
+                  <th scope="col">Участник</th>
+                  <th scope="col">Записать в лагерь</th>
+
+
+                           </tr>
+                        </thead>
+                        <tbody>
+                         <%@forms.each_with_index do |form,i|%>
+                <tr>
+                 
+                  <th scope="row"><%=i+1%></th>
+
+                  <td><%=form.created_at%></td>
+                  <td><%=form.name_child%></td>
+
+
+
+
+              <td>
+                 <a class="nav-link" href=<%=edit_user_form_path(form.user_id,form.id)%>><button type="button" class="btn btn-outline-primary">ЗАПИСАТЬ В ЛАГЕРЬ</button></a>
+                </td>
+
+              </tr>
+              <%end%>
+                        </tbody>
+                   </table>
+
+            </div>         
+
+          </div>
+            
+       </div> <!-- end row -->
+        
+
+
+
+    </section> <!-- end styles -->  
+
+
+
+

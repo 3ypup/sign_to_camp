@@ -46,10 +46,11 @@ recount
 
 
 respond_to do | format |  
+
     format.html # index.html.erb
     format.json { render :json => @forms }
     format.xlsx {
-      xlsx_package = Form.to_xlsx
+      xlsx_package = Form.where(archive: false).to_xlsx
       begin 
         temp = Tempfile.new("forms.xlsx") 
         xlsx_package.serialize "/tmp/forms"
@@ -96,6 +97,36 @@ respond_to do | format |
 end
 end
 
+
+def myforms
+
+
+@user = current_user
+
+
+  @forms=@user.forms.all
+
+
+recount
+
+
+respond_to do | format |  
+    format.html # index.html.erb
+    format.json { render :json => @forms }
+    format.xlsx {
+
+        xlsx_package = Form.where(email: current_user.email).to_xlsx
+      begin 
+        temp = Tempfile.new("forms.xlsx") 
+        xlsx_package.serialize "/tmp/forms"
+        send_file "/tmp/forms", :filename => "Список участников.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ensure
+        temp.close 
+        temp.unlink
+    end
+ }  
+end
+end
 
 def create
  

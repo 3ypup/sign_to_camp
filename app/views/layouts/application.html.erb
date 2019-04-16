@@ -79,7 +79,7 @@
         <li class="current"><a href="/" >ГЛАВНАЯ</a></li>
         
  
-        <li><a href="#My" title="АРХИВ">МОИ АНКЕТЫ</a></li>
+        <li><a href="/forms/myforms" title="АРХИВ">МОИ АНКЕТЫ</a></li>
 
         <%if current_user.level>1%>
              
@@ -90,7 +90,7 @@
                <%end%>
  
               <a href=<%=user_forms_path(current_user.id)%> title="sign-up" class="button button-primary cta">Запись в лагерь</a>
-    
+              <small class = "float-right" ><%= link_to 'Выйти?', destroy_user_session_path, :method => :delete %></small>
           </ul>
     </nav>
 

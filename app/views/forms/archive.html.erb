@@ -54,7 +54,7 @@
 
           <div class="col-twelve">
 
-            <h3>Список участников</h3>
+            <h3>АРХИВ РАНЕЕ ЗАРЕГЕСТРИРОВАННЫХ АНКЕТ</h3>
 
             <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a></p3>
                               
@@ -85,7 +85,7 @@
                  
                   <th scope="row"><%=i+1%></th>
 
-                  <td><%=form.created_at%></td>
+                  <td><%=form.created_at.strftime("%Y")%></td>
                   <td><%=form.name_child%></td>
 
 
