@@ -60,14 +60,19 @@
 						здесь.</t2><br/>
 						  <p1> <%= f.text_field  :friends, size: "50x1", value: @form.friends  %> </p1><br/><br/> 
 
-						  <t2>15.прикрепите, пожалуйста, фото подростка.</t2><br/>
+						  <t2>15.Изменить фото подростка.</t2><br/>
 						  <p1> <%= f.file_field :photo_child  %> </p1><br/><br/>
-						     
-						  <t2>16.прикрепите, пожалуйста, скан паспорта подростка или свидетельства о рождении.</t2><br/>
-						  <p1> <%= f.file_field :photo_passport %> </p1><br/><br/>
+					<img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_child%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-						   <t2>17.прикрепите, пожалуйста, скан медицинского полиса страхования</t2><br/>
+						     
+						  <t2>16.Изменить скан паспорта подростка или свидетельства о рождении.</t2><br/>
+						  <p1> <%= f.file_field :photo_passport %> </p1><br/><br/>
+					<img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_passport%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+						   <t2>17.Изменить скан медицинского полиса страхования</t2><br/>
 						  <p1> <%= f.file_field :photo_medical %> </p1><br/><br/>
+					<img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 
 						   <%= f.hidden_field  :refresh,  value: 1  %> 
 						   <%= f.hidden_field  :archive,  value: false %> 
