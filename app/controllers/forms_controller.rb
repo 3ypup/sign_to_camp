@@ -35,7 +35,7 @@ def index
 
 if current_user.level >1
 
-  @forms = Form.where(archive: false)
+  @forms = Form.where(archive: "false")
 
 else
 

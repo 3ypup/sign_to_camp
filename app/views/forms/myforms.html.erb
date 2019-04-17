@@ -21,7 +21,7 @@
 
             <h3>Зарегистрированные ранее анкеты</h3>
 
-            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a></p3>
+            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>НОВАЯ АНКЕТА</a></p3>
                               
             <%if current_user.level >1%>
 
@@ -48,14 +48,14 @@
                  
                   <th scope="row"><%=i+1%></th>
 
-                  <td><%=form.created_at%></td>
+                  <td><%=form.created_at.strftime("%Y")%></td>
                   <td><%=form.name_child%></td>
 
 
 
 
               <td>
-                 <a class="nav-link" href=<%=edit_user_form_path(form.user_id,form.id)%>><button type="button" class="btn btn-outline-primary">ЗАПИСАТЬ В ЛАГЕРЬ</button></a>
+                 <a href=<%=edit_user_form_path(form.user_id,form.id)%>><button type="button" class="button button-primary cta">ЗАПИСАТЬ В ЛАГЕРЬ</button></a>
                 </td>
 
               </tr>
