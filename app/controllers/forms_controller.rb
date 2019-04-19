@@ -172,7 +172,7 @@ end
 
 def update
 
-
+@admin = User.where(level:4).take
 
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
@@ -189,6 +189,7 @@ def update
          end
 
          end    
+         UserMailer.new_form(@admin, @url).deliver
         redirect_to user_form_path(@form.user_id)
 
 
