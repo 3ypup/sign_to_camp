@@ -44,13 +44,13 @@ else
 end
 recount
 
-
+  
 respond_to do | format |  
 
     format.html # index.html.erb
     format.json { render :json => @forms }
     format.xlsx {
-      xlsx_package = Form.where(archive: false).to_xlsx
+      xlsx_package = @forms.to_xlsx
       begin 
         temp = Tempfile.new("forms.xlsx") 
         xlsx_package.serialize "/tmp/forms"
@@ -84,7 +84,7 @@ respond_to do | format |
     format.html # index.html.erb
     format.json { render :json => @forms }
     format.xlsx {
-      xlsx_package = Form.to_xlsx
+      xlsx_package = @forms.to_xlsx
       begin 
         temp = Tempfile.new("forms.xlsx") 
         xlsx_package.serialize "/tmp/forms"
