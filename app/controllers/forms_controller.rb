@@ -188,7 +188,8 @@ def update
           UserMailer.signup_confirmation(@form, @url).deliver
          end
 
-         end    
+         end 
+            
          UserMailer.new_form(@admin, @url).deliver
         redirect_to user_form_path(@form.user_id)
 
