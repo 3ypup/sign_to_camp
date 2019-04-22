@@ -19,6 +19,18 @@ def new_form(user, url)
   mail to: user.email, subject: "Новая анкета"
   end
 
+def edit_form(user, url)
+
+
+    @greeting = "Hi"
+
+    @form = user
+
+    @url = url
+
+
+  mail to: user.email, subject: "Анкета отредактирована"
+  end
 
 
   def signup_confirmation(user, url)
