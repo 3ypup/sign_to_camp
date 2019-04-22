@@ -180,17 +180,20 @@ def update
         if current_user.level>1
         @url = user_form_url(form_params)
 
-          if @form.validation == 1
-              if @form.payment == 1
-                  UserMailer.success_confirmation(@form, @url).deliver
-              
-                
+              if @form.validation == 1
+                  if @form.payment == 1
+                      UserMailer.success_confirmation(@form, @url).deliver
+                  
+                    else
+                       UserMailer.signup_confirmation(@form, @url).deliver
 
-              end
-          
-          UserMailer.signup_confirmation(@form, @url).deliver
-             
-         end
+                  end
+              
+              else
+                
+              UserMailer.signup_confirmation(@form, @url).deliver
+
+             end
 
          end 
             
