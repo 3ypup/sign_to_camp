@@ -188,15 +188,15 @@ def update
                        UserMailer.signup_confirmation(@form, @url).deliver
 
                   end
-                            else
-
+              
+              else
               UserMailer.signup_confirmation(@form, @url).deliver
 
              end
 
          end 
             
-         UserMailer.edit_form(@admin, @url).deliver
+         UserMailer.new_form(@admin, @url).deliver
         redirect_to user_form_path(@form.user_id)
 
 
