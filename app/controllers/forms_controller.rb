@@ -182,12 +182,15 @@ def update
 
           if @form.validation == 1
               if @form.payment == 1
-            UserMailer.success_confirmation(@form, @url).deliver
-           
+                  UserMailer.success_confirmation(@form, @url).deliver
+              else
 
-                end
+
+                UserMailer.signup_confirmation(@form, @url).deliver
+
+              end
           
-          UserMailer.signup_confirmation(@form, @url).deliver
+          
          end
 
          end 
