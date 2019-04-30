@@ -194,10 +194,14 @@ def update
 
              end
 
-         end 
-            
+         
+         else   
          UserMailer.new_form(@admin, @url).deliver
-        redirect_to user_form_path(@form.user_id)
+       
+
+        
+         end
+          redirect_to user_form_path(@form.user_id)
 
 
       else

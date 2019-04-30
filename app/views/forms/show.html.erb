@@ -146,6 +146,7 @@
 
 
         <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+        
           <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
             <%= f.hidden_field  :refresh,  value: 0  %> 
           
