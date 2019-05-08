@@ -54,6 +54,15 @@
 
                 <p3> <a class="float-right button button-primary cta" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %></a></p3><br/><br/><hr/>
 
+
+                    <p>Одобренных анкет: <%=@validate_result%></p>
+                    <p>Оплаченных анкет: <%=@payment_result%></p>
+                    <p>Полностью зарегистрированы: <%=@success_result%></p>
+
+                   
+
+
+
             <%end%></p>
 
             <div class="table-responsive">
