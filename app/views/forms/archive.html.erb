@@ -57,8 +57,20 @@
              
 
               <td>
+
+                <%if form.user_id == current_user.id%>
+
                 <a href=<%=edit_user_form_path(form.user_id,form.id)%>><button type="button" class="button button-primary cta">ЗАПИСАТЬ В ЛАГЕРЬ</button></a>
 
+                <%elsif current_user.level>1%>
+
+                  <a href=<%=user_form_path(form.user_id,form.id)%>><button type="button" class="button button-primary cta">Открыть анкету</button></a>
+
+
+
+
+
+                <%end%>
 
                 </td>
 

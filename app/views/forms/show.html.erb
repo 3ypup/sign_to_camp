@@ -106,64 +106,66 @@
           <hr/><p4 class="float-left">
             15.скан полиса:</t2></p4><br/>
           <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-          
- <% if @form.validation !=1%>
 
-          <p4 class="float-left">
-            Комментарии</t2></p4>
-          <h2 class="float-right">
-              <%=@form.notes%></h2><br/><br/><br/>    
+    <% if @form.archive == "false" %>      
+       <% if @form.validation !=1%>
 
-
-
-          <%= link_to "Редактировать анкету", edit_user_form_path(@form.user_id)  %> 
-        <%end%>
-
-        <%if current_user.level >1 %>
+                <p4 class="float-left">
+                  Комментарии</t2></p4>
+                <h2 class="float-right">
+                    <%=@form.notes%></h2><br/><br/><br/>    
 
 
 
-       <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+                <%= link_to "Редактировать анкету", edit_user_form_path(@form.user_id)  %> 
+              <%end%>
 
-         
-          <h3>Комментарии к анкете</h3><br/>
-          <p4> <%= f.text_area :notes, size: "80x5", value: @form.notes %> </p4><br/>
-          <p4> <%= f.hidden_field :validation, value: 0 %> </p4><br/>
-            <%= f.hidden_field  :refresh,  value: 0  %> 
-         
-         
-            
-          
-       
-
-          <button class="btn btn-danger  float-left" type="submit"><h3>Отклонить анкету с комментариями</h3></button>
-
-        <%end%>
+              <%if current_user.level >1 %>
 
 
 
+             <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+
+               
+                <h3>Комментарии к анкете</h3><br/>
+                <p4> <%= f.text_area :notes, size: "80x5", value: @form.notes %> </p4><br/>
+                <p4> <%= f.hidden_field :validation, value: 0 %> </p4><br/>
+                  <%= f.hidden_field  :refresh,  value: 0  %> 
+               
+               
+                  
+                
+             
+
+                <button class="btn btn-danger  float-left" type="submit"><h3>Отклонить анкету с комментариями</h3></button>
+
+              <%end%>
 
 
 
-        <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
-        
-          <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
-            <%= f.hidden_field  :refresh,  value: 0  %> 
-          
-          <button class="button button-primary cta float-right" type="submit">Зарегистрировать анкету</button>
-
-        <%end%><br/><br/><br/>
-
-         <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
-          <p4> <%= f.hidden_field :payment, value: 1 %> </p4>
-            <%= f.hidden_field  :refresh,  value: 0  %> 
 
 
-          <button class="button button-primary cta float-right" type="submit">Подтвердить опллату</button>
 
-        <%end%>
+              <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+              
+                <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
+                  <%= f.hidden_field  :refresh,  value: 0  %> 
+                
+                <button class="button button-primary cta float-right" type="submit">Зарегистрировать анкету</button>
+
+              <%end%><br/><br/><br/>
+
+               <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+                <p4> <%= f.hidden_field :payment, value: 1 %> </p4>
+                  <%= f.hidden_field  :refresh,  value: 0  %> 
 
 
-        <%end%>
+                <button class="button button-primary cta float-right" type="submit">Подтвердить опллату</button>
+
+              <%end%>
+
+
+              <%end%>
+    <%end%>
 
 
