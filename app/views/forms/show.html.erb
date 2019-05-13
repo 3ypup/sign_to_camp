@@ -107,7 +107,8 @@
             15.скан полиса:</t2></p4><br/>
           <img class="float-right img-responsive" style="width: 100px" src=<%=@form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-    <% if @form.archive == "false" %>      
+    <% if @form.archive == "false" %>  
+
        <% if @form.validation !=1%>
 
                 <p4 class="float-left">
@@ -140,8 +141,20 @@
                 <button class="btn btn-danger  float-left" type="submit"><h3>Отклонить анкету с комментариями</h3></button>
 
               <%end%>
+              <br/><br/>
+
+            <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+              
+                  <%= f.hidden_field :validation, value: 0 %> 
+                  <%= f.hidden_field :payment, value: 0 %>
+                  <%= f.hidden_field :refresh,  value: 0  %> 
+                  <%= f.hidden_field :archive,  value: "t"  %>
 
 
+                
+                 <button class="btn btn-danger  float-left" type="submit"><h3>Отправить в архив</h3></button>
+
+              <%end%><br/><br/><br/>
 
 
 
