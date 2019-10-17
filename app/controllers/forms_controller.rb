@@ -4,6 +4,8 @@ def authentificate
   before_action :authenticate_user!
 end
 
+
+
 $vegan = ["Нет", "Да"]
 
 
