@@ -60,7 +60,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise'
+gem "devise", ">= 4.7.1"
 gem 'carrierwave'
 
 gem 'actionmailer'
@@ -68,5 +68,5 @@ gem 'actionmailer'
 gem 'acts_as_xlsx',
 :git => "git://github.com/straydogstudio/acts_as_xlsx.git"
 
-gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
+gem "rubyzip", ">= 1.3.0" # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
