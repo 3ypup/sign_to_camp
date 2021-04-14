@@ -23,7 +23,7 @@
 
             <h3>АРХИВ РАНЕЕ ЗАРЕГЕСТРИРОВАННЫХ АНКЕТ</h3>
 
-            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>Запись в лагерь</a></p3>
+            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>Запись на мероприятие</a></p3>
                               
             <%if current_user.level >1%>
 
@@ -60,7 +60,7 @@
 
                 <%if form.user_id == current_user.id%>
 
-                <a href=<%=edit_user_form_path(form.user_id,form.id)%>><button type="button" class="button button-primary cta">ЗАПИСАТЬ В ЛАГЕРЬ</button></a>
+                <a href=<%=edit_user_form_path(form.user_id,form.id)%>><button type="button" class="button button-primary cta">Открыть анкету</button></a>
 
                 <%elsif current_user.level>1%>
 
