@@ -70,3 +70,5 @@ gem 'acts_as_xlsx',
 
 gem "rubyzip", ">= 1.3.0" # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
+
+gem 'file_validators'

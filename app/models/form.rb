@@ -23,6 +23,9 @@ acts_as_xlsx
   validates_format_of :photo_passport,  :with => %r{(png|jpg|jpeg)}i, :message => "Можно прикреплять изображения только формата jpg и png !!"
   validates_format_of :photo_medical,  :with => %r{(png|jpg|jpeg)}i, :message => "Можно прикреплять изображения только формата jpg и png !!"
 
+    validates :photo_child, file_size: { less_than: 5.megabytes, message: 'Загрузите, пожалуйста, фото меньшего размера. Не больше пяти мегабайт' }
+    validates :photo_passport, file_size: { less_than: 5.megabytes, message: 'Загрузите, пожалуйста, фото паспорта меньшего размера. Не больше пяти мегабайт' }
+    validates :photo_medical, file_size: { less_than: 5.megabytes, message: 'Загрузите, пожалуйста, фото медицинского полиса меньшего размера. Не больше пяти мегабайт' }
 
   validates_numericality_of :accept, :equal_to => 1, :message => "Необходимо согласиться с условиями обработки данных для продолжения!"
 
