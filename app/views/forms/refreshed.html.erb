@@ -14,7 +14,9 @@
                               <th scope="col">#</th>
                               <th scope="col">Участник</th>
                               <th scope="col">Анекта согласована</th>
-                              <th scope="col">Оплата</th>
+                              <th scope="col">Оплата Храм</th>
+                              <th scope="col">Оплата База</th>
+                              <th scope="col">Взнос</th>
                               <th scope="col">Открыть анкету</th>
 
                             </tr>
@@ -52,24 +54,55 @@
 
 
 
-                           <td><%if form.payment==1%>
-                            
+                            <td><%if form.payment==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Платеж Храм
+                  </div>
 
-                            <div class="alert alert-success" role="alert">
-                                Платеж подтвержден
-                              </div>
+                  <%else%>
 
-                              <%else%>
-
-                              <div class="alert alert-danger" role="alert">
-                                Платеж еще не подтвержден
-                              </div>
+                  <div class="alert alert-danger" role="alert">
+                    Платеж Храм
+                  </div>
 
 
-                            <%end%>
+                <%end%>
 
-                          </td>
+              </td>
+              <td><%if form.payment2==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Платеж База
+                  </div>
 
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Платеж База
+                  </div>
+
+
+                <%end%>
+
+              </td>
+
+              <td><%if form.payment3==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Взнос 
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Взнос 
+                  </div>
+
+
+                <%end%>
+
+              </td>
                           <td>
                             
 
