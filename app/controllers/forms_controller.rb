@@ -138,10 +138,12 @@ def create
     @user = User.find(params[:user_id])
     @form = @user.forms.new(form_params)
     @url = user_forms_url(@user)
-    @admin = User.where(level:4).take
+    @admins = User.where(level:4)
 
       if  @form.save
-        UserMailer.new_form(@admin, @url).deliver
+        @admins.each do |admin|
+        UserMailer.new_form(admin, @url).deliver
+        end
         redirect_to user_forms_path(@user)
       else
         render action: 'new'
@@ -177,7 +179,7 @@ end
 
 def update
 
-@admin = User.where(level:4).take
+@admins = User.where(level:4)
 
   @form = Form.find(params[:id])
      if  @form.update(form_params) 
@@ -200,9 +202,11 @@ def update
              end
 
          
-         else   
-         UserMailer.new_form(@admin, @url).deliver
-       
+         else
+         @admins.each do |admin|   
+         UserMailer.new_form(admin, @url).deliver
+        end
+          
 
         
          end
