@@ -6,7 +6,7 @@
 
             <div class="alert alert-success" role="alert">
                  Анкета прошла регистрацию
-                 <%if @form.payment == 1%>
+                 <%if @form.payment + @form.payment2 + @form.payment3 == 3%>
                   и оплачена!
                  <%end%>
 
@@ -164,7 +164,7 @@
                 <p4> <%= f.hidden_field :validation, value: 1 %> </p4>
                   <%= f.hidden_field  :refresh,  value: 0  %> 
                 
-                <button class="button button-primary cta float-right" type="submit">Зарегистрировать анкету</button>
+                <button class="button button-primary cta float-right" type="submit">Зарегистрировать анкету</button><br/>
 
               <%end%><br/><br/><br/>
 
@@ -173,7 +173,23 @@
                   <%= f.hidden_field  :refresh,  value: 0  %> 
 
 
-                <button class="button button-primary cta float-right" type="submit">Подтвердить опллату</button>
+                <button class="button button-primary cta float-right" type="submit">Оплата Храм</button><br/>
+
+              <%end%>
+                             <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+                <p4> <%= f.hidden_field :payment2, value: 1 %> </p4>
+                  <%= f.hidden_field  :refresh,  value: 0  %> 
+
+
+                <button class="button button-primary cta float-right" type="submit">Оплата База</button><br/>
+
+              <%end%>
+                             <%= form_for :form, url: user_form_path(@form.user_id), method: :put do |f| %> 
+                <p4> <%= f.hidden_field :payment3, value: 1 %> </p4>
+                  <%= f.hidden_field  :refresh,  value: 0  %> 
+
+
+                <button class="button button-primary  btn-sm cta float-right" type="submit">Взнос</button><br/>
 
               <%end%>
 

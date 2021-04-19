@@ -19,7 +19,7 @@
 
 
 
-            <%if @v>0 && @p<@v%>
+            <%if @v>0 && @p<3%>
               <div class="container">
                 <div class="row">
                   <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
@@ -71,7 +71,9 @@
                   <th scope="col">#</th>
                   <th scope="col">Участник</th>
                   <th scope="col">Анекта согласована</th>
-                  <th scope="col">Оплата</th>
+                  <th scope="col">Оплата Храм</th>
+                  <th scope="col">Оплата База</th>
+                  <th scope="col">Взнос</th>
                   <th scope="col">Открыть анкету</th>                  
                            </tr>
                         </thead>
@@ -108,13 +110,46 @@
                <td><%if form.payment==1%>
                 
                 <div class="alert alert-success" role="alert">
-                    Платеж подтвержден
+                    Платеж Храм
                   </div>
 
                   <%else%>
 
                   <div class="alert alert-danger" role="alert">
-                    Платеж еще не подтвержден
+                    Платеж Храм
+                  </div>
+
+
+                <%end%>
+
+              </td>
+              <td><%if form.payment2==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Платеж База
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Платеж База
+                  </div>
+
+
+                <%end%>
+
+              </td>
+
+              <td><%if form.payment3==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Взнос 
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Взнос 
                   </div>
 
 

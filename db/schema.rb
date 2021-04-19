@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_062308) do
+ActiveRecord::Schema.define(version: 2021_04_19_071722) do
 
   create_table "forms", force: :cascade do |t|
     t.text "name_child"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_062308) do
     t.integer "refresh"
     t.integer "accept"
     t.string "archive", default: "f"
-    t.string "payment2"
-    t.string "payment3"
+    t.integer "payment2"
+    t.integer "payment3"
     t.index ["user_id"], name: "index_forms_on_user_id"
   end
 
