@@ -39,7 +39,7 @@ if current_user.level >1
 
   @forms = Form.where(archive: "false")
   @validate_result = Form.where(validation: "1").count
-  @payment_result = Form.where(payment: "1").count
+  @payment_result = Form.where(payment: "1", payment2: "1", payment3: "1").count
   @success_result = Form.where(validation: "1", payment: "1", payment2: "1", payment3: "1").count
 
 else
