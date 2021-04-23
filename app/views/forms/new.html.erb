@@ -84,8 +84,9 @@
    <t2>17.прикрепите, пожалуйста, скан медицинского полиса страхования</t2><br/>
   <p1> <%= f.file_field :photo_medical %> </p1><br/><br/>
      
-
-
+  <%= f.hidden_field  :payment,  value: 0  %>
+  <%= f.hidden_field  :payment2,  value: 0  %>
+  <%= f.hidden_field  :payment3,  value: 0  %>
 
     <%= f.hidden_field  :archive,  value: "false"  %> 
    <%= f.hidden_field  :refresh,  value: 1  %> 
