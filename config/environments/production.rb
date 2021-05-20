@@ -106,7 +106,7 @@ Rails.application.configure do
 
 config.action_mailer.raise_delivery_errors = true
 
-config.action_mailer.default_url_options = { :host => '185.189.12.126' }
+config.action_mailer.default_url_options = { :host => 'kosmalager.ru' }
 ActionMailer::Base.smtp_settings = {
 
 
