@@ -189,7 +189,7 @@ def update
         @url = user_form_url(form_params)
 
               if @form.validation == 1
-                  if @form.payment + @form.payment2 + @form.payment3 == 3
+                  if @form.payment + @form.payment2 == 2
                       UserMailer.success_confirmation(@form, @url).deliver
                   
                     else
