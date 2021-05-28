@@ -45,6 +45,7 @@ def new_form(user, url)
     @notes=user.notes
     @url = url
 
+  attachments['памятка 2021 26 мая.pdf'] = File.read('public\files\памятка 2021 26 мая.pdf')
 
   mail to: user.email, subject: "Вы записали в лагерь участника!"
   end
