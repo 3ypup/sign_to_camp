@@ -45,7 +45,7 @@ def new_form(user, url)
     @notes=user.notes
     @url = url
 
-  attachments['pamyatka_leto_2021.pdf'] = File.read('public\files\pamyatka_leto_2021.pdf')
+  attachments['pamyatka_leto_2021.pdf'] = File.read('public/files/pamyatka_leto_2021.pdf')
 
   mail to: user.email, subject: "Вы записали в лагерь участника!"
   end
