@@ -49,4 +49,18 @@ def new_form(user, url)
 
   mail to: user.email, subject: "Вы записали на выезд участника!."
   end
+
+  def success_confirmation_first(user, url)
+
+
+    @greeting = "Hi"
+
+    @form = user
+    @notes=user.notes
+    @url = url
+
+  attachments['pamyatka_leto_2021.pdf'] = File.read('public/files/pamyatka_leto_2021.pdf')
+
+  mail to: user.email, subject: "Ваша анкета зарегистрированна."
+  end
 end

@@ -180,9 +180,13 @@ end
 
 def update
 
+
 @admins = User.where(level:4)
 
   @form = Form.find(params[:id])
+  @notes = @form.notes
+
+  
      if  @form.update(form_params) 
 
         if current_user.level>1
@@ -193,10 +197,11 @@ def update
                       UserMailer.success_confirmation(@form, @url).deliver
                   
                     else
-                       UserMailer.signup_confirmation(@form, @url).deliver
+                       UserMailer.success_confirmation_first(@form, @url).deliver
 
                   end
               
+
               else
               UserMailer.signup_confirmation(@form, @url).deliver
 
