@@ -225,6 +225,44 @@ def update
 
  end     
 
+def passports
+
+  @user = current_user
+
+  if current_user.level >1
+
+  @formsall = Form.where(archive: "false")
+  @forms = @formsall.order("name_child")
+  @validate_result = Form.where(validation: "1").count
+  @payment_result = Form.where(payment: "1", payment2: "1", payment3: "1").count
+  @success_result = Form.where(validation: "1", payment: "1", payment2: "1", payment3: "1").count
+
+else
+
+  @forms=@user.forms.all
+
+end
+recount
+
+  
+respond_to do | format |  
+
+    format.html # index.html.erb
+    format.json { render :json => @forms }
+    format.xlsx {
+      xlsx_package = @forms.to_xlsx
+      begin 
+        temp = Tempfile.new("forms.xlsx") 
+        xlsx_package.serialize "/tmp/forms"
+        send_file "/tmp/forms", :filename => "Список участников.xlsx", :type => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ensure
+        temp.close 
+        temp.unlink
+    end
+ }  
+end
+
+end
 
 
   def form_params

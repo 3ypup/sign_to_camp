@@ -1,0 +1,150 @@
+<%if current_user.level==1%>
+
+<%@v=0%>
+<%@p=0%>
+
+<%@forms.each_with_index do |form,i|%>
+<%@v+=form.validation.to_i%>
+<%@p+=form.payment.to_i%>
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+            <%if @v>0 && @p<3%>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
+                     </div>
+                        <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
+                            <div class="alert alert-success" role="alert">
+                           Отлично!!! Ваша анкета проверена одним из наших ведущих и зарегестрированна.<br/> Осталось только оплатить участие.<br/> 
+                           Инструкция:<hr/>
+
+                          <br/>Оргвзнос: 15 100 рублей при оплате до 23 мая, 16500 руб при оплате с 24 мая и позже. 
+                         <br/>Оргвзнос перечисляется тремя частями: 2 безналичных перевода на счета дома отдыха и храма и небольшая сумма наличными.
+                         <br/>Подробности и реквизиты посмотрите пожалуйста в файле "процедура оплаты", который мы прислали Вам по электронной почте.
+
+                          <br/><br/>После оплаты необходимо сфотографировать квитанции, подтверждающие оплату и переслать фотографии либо на емайл podrostki.hram@gmail.com , либо на Whatsapp по телефону 8 925 467 83 32.
+
+                          <br/><br/>После заполнения анкеты и перечисления оргвзноса необходимо либо дождаться подтверждения от администратора о том, что ребенок записан, либо позвонить по телефону 8925 467 8332 и уточнить. 
+                          </div>
+                        <div class="col-lg-8 col-md-8 col-sx-2 col-sm-2 mx-auto">
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+              <%end%>
+              <%end%>
+
+            <h3>Список участников</h3>
+
+            <p3><a class="float-left button button-primary cta" href=<%=new_user_form_url(current_user.id)%>>НОВАЯ АНКЕТА</a></p3>
+                              
+            <%if current_user.level >1%>
+
+                <p3> <a class="float-right button button-primary cta" <%= link_to 'Выгрузить в Excel', url_for(:format=>"xlsx") %></a></p3><br/><br/><hr/>
+
+
+                    <p>Одобренных анкет: <%=@validate_result%></p>
+                    <p>Оплаченных анкет: <%=@payment_result%></p>
+                    <p>Полностью зарегистрированных: <%=@success_result%></p>
+
+                   
+
+
+
+            <%end%></p>
+
+            <div class="table-responsive">
+
+                <table>
+                        <thead>
+                           <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Участник</th>
+                  <th scope="col">Анекта согласована</th>
+                  <th scope="col">Оплата Храм</th>
+                  <th scope="col">Фото пасспорт</th>
+                  <th scope="col">Фото полис</th>
+                  <th scope="col">Открыть анкету</th>                  
+                           </tr>
+                        </thead>
+                        <tbody>
+                         <%@forms.each_with_index do |form,i|%>
+                <tr>
+                 
+                  <th scope="row"><%=i+1%></th>
+
+
+                  <td><%=form.name_child%></td>
+
+
+              <td><%if form.validation==1%>
+                
+
+                <div class="alert alert-success" role="alert">
+                    Анкета одобрена
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Анкета еще не прошла проверку
+                    <%if form.notes != nil %>
+                    , есть комментарии.
+                    <%end%>
+                  </div>
+
+                <%end%>
+
+              </td>
+
+               <td><%if form.payment==1%>
+                
+                <div class="alert alert-success" role="alert">
+                    Платеж Храм
+                  </div>
+
+                  <%else%>
+
+                  <div class="alert alert-danger" role="alert">
+                    Платеж Храм
+                  </div>
+
+
+                <%end%>
+
+              </td>
+              <td>
+
+                <img class="float-right img-responsive" style="width: 200px" src=<%=form.photo_passport%>><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+              </td>
+
+              <td>
+
+                  <img class="float-right img-responsive" style="width: 200px" src=<%=form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+              </td>
+
+              <td>
+                 
+                <a href=<%=user_form_url(form.user_id,form.id)%> title="sign-up" class="button button-primary cta">Открыть</a>
+
+                </td>
+
+              </tr>
+              <%end%>
+                        </tbody>
+                   </table>
+
+            </div>          
+
