@@ -125,19 +125,47 @@
 
               </td>
               <td>
+      
 
-                <img class="float-right img-responsive" style="width: 200px" src=<%=form.photo_passport%>><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+              <div class="container1">
+                <img style="max-width:100%;cursor:pointer"
+              onclick="onClick(this)" class="modal-hover-opacity" src=<%=form.photo_passport%> >
+              </div>
+
+
+            <div id="modal01" class="modal" onclick="this.style.display='none'">
+              <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <div class="modal-content">
+                <img id="img01" style="max-width:100%">
+              </div>
+            </div>
+
+
               </td>
 
               <td>
 
-                  <img class="float-right img-responsive" style="width: 200px" src=<%=form.photo_medical%>><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+              <div class="container1">
+                <img  style="max-width:60%;cursor:pointer"
+              onclick="onClick(this)" class="modal-hover-opacity" src=<%=form.photo_medical%>>
+              </div>
+
+
+            <div id="modal01" class="modal" onclick="this.style.display='none'">
+              <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <div class="modal-content">
+                <img id="img01" style="max-width:60%">
+              </div>
+            </div>
+                  
 
               </td>
 
               <td>
                  
-                <a href=<%=user_form_url(form.user_id,form.id)%> title="sign-up" class="button button-primary cta">Открыть</a>
+                <a  title="sign-up" class="button button-primary cta" href=<%=user_form_url(form.user_id,form.id)%>>Открыть</a>
 
                 </td>
 
