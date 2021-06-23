@@ -17,4 +17,7 @@ resources :users do
   resources :posts
 
 end
+
+
+get "*path", to: redirect('/')
 end
