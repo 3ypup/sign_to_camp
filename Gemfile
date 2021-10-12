@@ -10,7 +10,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 #gem 'puma', '~> 3.11'
 
-gem 'puma', '~> 4.3' #'~> 3.11'
+gem 'puma', '~> 5.5' #'~> 3.11'
 #gem 'puma', git: 'https://github.com/eric-norcross/puma.git', branch: 'chrome_70_ssl_curve_compatiblity'
 
 # Use SCSS for stylesheets
