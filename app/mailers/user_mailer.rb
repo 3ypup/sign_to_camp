@@ -45,7 +45,7 @@ def new_form(user, url)
     @notes=user.notes
     @url = url
 
-  attachments['winter_2022.doc'] = File.read('public/files/winter_2022.doc')
+  #attachments['winter_2022.doc'] = File.read('public/files/winter_2022.doc')
 
   mail to: user.email, subject: "Вы записали на выезд участника!."
   end
@@ -59,7 +59,7 @@ def new_form(user, url)
     @notes=user.notes
     @url = url
 
-  attachments['winter_2022.doc'] = File.read('public/files/winter_2022.doc')
+  #attachments['winter_2022.doc'] = File.read('public/files/winter_2022.doc')
 
   mail to: user.email, subject: "Ваша анкета зарегистрированна."
   end
