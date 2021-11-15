@@ -295,6 +295,9 @@ end
 
       :photo_child,
       :photo_passport,
-      :photo_medical)
+      :photo_medical,
+
+      :passport,
+      :sex)
   end
 end

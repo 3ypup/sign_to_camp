@@ -91,7 +91,12 @@
     <%= f.hidden_field  :archive,  value: "false"  %> 
    <%= f.hidden_field  :refresh,  value: 1  %> 
  
+  <t2>18.Пол</t2><br/>
+<p> <%=f.select :sex, [['М'],['Ж']]%></p><br/>
 
+
+  <t2>19.Серия и номер паспорта?</t2><br/>
+  <p1> <%= f.text_field  :passport, size: "50x1"   %> </p1><br/><br/>
 
 
 <!-- Large modal -->

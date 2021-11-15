@@ -19,6 +19,12 @@ acts_as_xlsx
   validates :photo_child, presence: {:message => "Добавьте фотографию подростка!"}
   validates :photo_passport, presence: {:message => "Добавьте скан документа удостоверяющего личность!"}
   validates :photo_medical, presence: {:message => "Добавьте скан медицинского полиса!"}
+  
+  validates :sex, presence: {:message => "Введите пол подростка!"}
+  validates :passport, presence: {:message => "Введите номер пасспорта или другого документа, удостоверяющего личность!"}
+
+
+
   validates_format_of :photo_child,  :with => %r{(png|jpg|jpeg)}i, :message => "Можно прикреплять изображения только формата jpg и png !!"
   validates_format_of :photo_passport,  :with => %r{(png|jpg|jpeg)}i, :message => "Можно прикреплять изображения только формата jpg и png !!"
   validates_format_of :photo_medical,  :with => %r{(png|jpg|jpeg)}i, :message => "Можно прикреплять изображения только формата jpg и png !!"
