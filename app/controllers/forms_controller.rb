@@ -40,8 +40,12 @@ if current_user.level >1
   @formsall = Form.where(archive: "false")
   @forms = @formsall.order("name_child")
   @validate_result = Form.where(validation: "1").count
-  @payment_result = Form.where(payment: "1", payment2: "1", payment3: "1").count
-  @success_result = Form.where(validation: "1", payment: "1", payment2: "1", payment3: "1").count
+ # @payment_result = Form.where(payment: "1", payment2: "1", payment3: "1").count
+ # @success_result = Form.where(validation: "1", payment: "1", payment2: "1", payment3: "1").count
+
+
+  @payment_result = Form.where(payment: "1").count
+  @success_result = Form.where(validation: "1", payment: "1").count
 
 else
 
@@ -193,7 +197,8 @@ def update
         @url = user_form_url(form_params)
 
               if @form.validation == 1
-                  if @form.payment + @form.payment2 == 2
+                  #if @form.payment + @form.payment2 == 2
+                  if @form.payment == 1
                       UserMailer.success_confirmation(@form, @url).deliver
                   
                     else
@@ -234,8 +239,11 @@ def passports
   @formsall = Form.where(archive: "false")
   @forms = @formsall.order("name_child")
   @validate_result = Form.where(validation: "1").count
-  @payment_result = Form.where(payment: "1", payment2: "1", payment3: "1").count
-  @success_result = Form.where(validation: "1", payment: "1", payment2: "1", payment3: "1").count
+  #@payment_result = Form.where(payment: "1", payment2: "1", payment3: "1").count
+  #@success_result = Form.where(validation: "1", payment: "1", payment2: "1", payment3: "1").count
+
+  @payment_result = Form.where(payment: "1").count
+  @success_result = Form.where(validation: "1", payment: "1").count
 
 else
 

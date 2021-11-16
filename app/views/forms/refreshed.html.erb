@@ -7,9 +7,10 @@
                               <th scope="col">#</th>
                               <th scope="col">Участник</th>
                               <th scope="col">Анекта согласована</th>
-                              <th scope="col">Оплата Храм</th>
+                              <th scope="col">Оплата</th>
+                              <!--
                               <th scope="col">Оплата База</th>
-                              <th scope="col">Взнос</th>
+                              <th scope="col">Взнос</th>-->
                               <th scope="col">Открыть анкету</th>
 
                             </tr>
@@ -50,19 +51,20 @@
                             <td><%if form.payment==1%>
                 
                 <div class="alert alert-success" role="alert">
-                    Платеж Храм
+                    Платеж
                   </div>
 
                   <%else%>
 
                   <div class="alert alert-danger" role="alert">
-                    Платеж Храм
+                    Платеж
                   </div>
 
 
                 <%end%>
 
               </td>
+              <!--
               <td><%if form.payment2==1%>
                 
                 <div class="alert alert-success" role="alert">
@@ -91,11 +93,11 @@
                   <div class="alert alert-danger" role="alert">
                     Взнос 
                   </div>
-
+            
 
                 <%end%>
 
-              </td>
+              </td>-->
                           <td>
                             
 
