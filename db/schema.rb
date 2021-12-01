@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_111517) do
+ActiveRecord::Schema.define(version: 2021_12_01_074335) do
 
   create_table "forms", force: :cascade do |t|
     t.text "name_child"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_111517) do
     t.integer "payment3"
     t.text "passport"
     t.text "sex"
+    t.text "history"
     t.index ["user_id"], name: "index_forms_on_user_id"
   end
 

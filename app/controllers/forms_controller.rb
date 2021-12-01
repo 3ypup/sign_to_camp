@@ -306,6 +306,7 @@ end
       :photo_medical,
 
       :passport,
-      :sex)
+      :sex,
+      :history)
   end
 end
