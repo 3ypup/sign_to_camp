@@ -18,8 +18,9 @@ def new
 
 
 
-
 end
+
+
 
 def refreshed
 
@@ -274,6 +275,7 @@ end
 
 
   def form_params
+    
     params.require(:form).permit(
 
       :author,
