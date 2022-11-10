@@ -67,8 +67,9 @@
                   <th scope="col">Участник</th>
                   <th scope="col">Анекта согласована</th>
                   <th scope="col">Оплата</th>
+                  <!--
                   <th scope="col">Оплата База</th>
-                  <th scope="col">Взнос</th>
+                  <th scope="col">Взнос</th>-->
                   <th scope="col">Открыть анкету</th>                  
                            </tr>
                         </thead>
@@ -118,6 +119,7 @@
                 <%end%>
 
               </td>
+              <!--
              <td><%if form.payment2==1%>
                 
                 <div class="alert alert-success" role="alert">
@@ -151,7 +153,7 @@
                 <%end%>
 
               </td> 
-
+              -->
               <td>
                  
                 <a href=<%=user_form_url(form.user_id,form.id)%> title="sign-up" class="button button-primary cta">Открыть</a>
