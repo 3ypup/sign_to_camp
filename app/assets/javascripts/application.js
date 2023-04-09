@@ -14,4 +14,4 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-@SpringBootApplication(exclude={SolrAutoConfiguration.class})
+//@SpringBootApplication(exclude={SolrAutoConfiguration.class})

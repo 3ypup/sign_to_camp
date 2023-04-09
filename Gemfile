@@ -76,3 +76,4 @@ gem 'zip-zip' # will load compatibility for old rubyzip API.
 
 gem 'file_validators'
 gem 'rack-utf8_sanitizer'
+gem 'sprockets'
